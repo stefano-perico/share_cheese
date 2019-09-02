@@ -24,7 +24,12 @@ class UserFixtures extends BaseFixture
 		    $user
 			    ->setEmail("user$coubinnt@mail.com")
 			    ->setPassword($this->userPasswordEncoder->encodePassword($user, "User"))
-
+			    ->setPhone($this->faker->phoneNumber)
+			    ->setCity($this->faker->city)
+			    ->setAddress($this->faker->address)
+			    ->setFirstName($this->faker->firstName)
+			    ->setLastName($this->faker->lastName)
+			    ->setPseudo($this->faker->p)
 		    ;
 
 	    });

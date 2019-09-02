@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55fde810-d5be-4d5f-9fa3-1cb72f20c9b7" name="Default Changelist" comment="" />
+    <list default="true" id="55fde810-d5be-4d5f-9fa3-1cb72f20c9b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +151,7 @@
       <option name="presentableId" value="Default" />
       <updated>1567177342635</updated>
       <workItem from="1567177344890" duration="1091000" />
-      <workItem from="1567178538650" duration="2807000" />
+      <workItem from="1567178538650" duration="4001000" />
     </task>
     <servers />
   </component>
