@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste de fromages{% endblock %}
+
+{% block body %}
+  <h1>Fromages en base de données</h1>
+
+  <table class="table">
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Area</th>
+              <th>Milk</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+      {% for cheese in cheeses %}
+          <tr>
+              <td>{{ cheese.name }}</td>
+              <td>{{ cheese.area }}</td>
+              <td>{{ cheese.milk }}</td>
+              <td>
+                  <a href="{{ path('cheese_show', {'id': cheese.id}) }}">show</a>
+                  <a href="{{ path('cheese_edit', {'id': cheese.id}) }}">edit</a>
+              </td>
+          </tr>
+      {% else %}
+          <tr>
+              <td colspan="6">no records found</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+
+  <a href="{{ path('cheese_new') }}" class="btn btn-primary">Create new</a>
+
+{% endblock %}
