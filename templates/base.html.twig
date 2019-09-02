@@ -11,10 +11,23 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        
+        {% block navbar %}
+            {% include 'navbar.html.twig' %}
+        {% endblock %}
+
+        {% block header %}
+            {% include 'header.html.twig' %}
+        {% endblock %}
 
         <main>
             {% block body %}{% endblock %}
         </main>
+
+        {% block footer %}
+            {% include 'footer.html.twig' %}
+        {% endblock %}
+
 
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
