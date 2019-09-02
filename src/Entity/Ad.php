@@ -41,6 +41,11 @@ class Ad
      */
     private $updateDate;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Cheese", inversedBy="ads")
+     */
+    private $cheese;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,18 @@ class Ad
     public function setUpdateDate(?\DateTimeInterface $updateDate): self
     {
         $this->updateDate = $updateDate;
+
+        return $this;
+    }
+
+    public function getCheese(): ?Cheese
+    {
+        return $this->cheese;
+    }
+
+    public function setCheese(?Cheese $cheese): self
+    {
+        $this->cheese = $cheese;
 
         return $this;
     }
