@@ -29,7 +29,6 @@ class UserFixtures extends BaseFixture
 			    ->setAddress($this->faker->address)
 			    ->setFirstName($this->faker->firstName)
 			    ->setLastName($this->faker->lastName)
-			    ->setPseudo($this->faker->p)
 		    ;
 
 	    });
@@ -39,7 +38,13 @@ class UserFixtures extends BaseFixture
 		    ->setEmail("admin@mail.com")
 		    ->setPassword($this->userPasswordEncoder->encodePassword($userAdmin, "Admin"))
 		    ->setRoles(['ROLE_ADMIN'])
+		    ->setPhone($this->faker->phoneNumber)
+		    ->setCity($this->faker->city)
+		    ->setAddress($this->faker->address)
+		    ->setFirstName($this->faker->firstName)
+		    ->setLastName($this->faker->lastName)
 	    ;
+
 	    $manager->persist($userAdmin);
 
 	    $manager->flush();
