@@ -31,6 +31,11 @@ class Exchange
      */
     private $dateCompleted;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Ad", cascade={"persist", "remove"})
+     */
+    private $ad;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Exchange
     public function setDateCompleted(?\DateTimeInterface $dateCompleted): self
     {
         $this->dateCompleted = $dateCompleted;
+
+        return $this;
+    }
+
+    public function getAd(): ?Ad
+    {
+        return $this->ad;
+    }
+
+    public function setAd(?Ad $ad): self
+    {
+        $this->ad = $ad;
 
         return $this;
     }
