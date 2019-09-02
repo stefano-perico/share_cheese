@@ -17,12 +17,12 @@ class Cheese
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $area;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $name;
 
@@ -34,7 +34,7 @@ class Cheese
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $englishWikiPedia;
+    private $englishWikipedia;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -47,14 +47,14 @@ class Cheese
     private $milk;
 
     /**
-     * @ORM\Column(type="json", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $geoShape = [];
+    private $geoShape;
 
     /**
-     * @ORM\Column(type="json", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $geoPoint = [];
+    private $geoPoint;
 
     public function getId(): ?int
     {
@@ -66,7 +66,7 @@ class Cheese
         return $this->area;
     }
 
-    public function setArea(string $area): self
+    public function setArea(?string $area): self
     {
         $this->area = $area;
 
@@ -78,7 +78,7 @@ class Cheese
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -97,14 +97,14 @@ class Cheese
         return $this;
     }
 
-    public function getEnglishWikiPedia(): ?string
+    public function getEnglishWikipedia(): ?string
     {
-        return $this->englishWikiPedia;
+        return $this->englishWikipedia;
     }
 
-    public function setEnglishWikiPedia(?string $englishWikiPedia): self
+    public function setEnglishWikiPedia(?string $englishWikipedia): self
     {
-        $this->englishWikiPedia = $englishWikiPedia;
+        $this->englishWikipedia = $englishWikipedia;
 
         return $this;
     }
@@ -133,24 +133,24 @@ class Cheese
         return $this;
     }
 
-    public function getGeoShape(): ?array
+    public function getGeoShape(): ?string
     {
         return $this->geoShape;
     }
 
-    public function setGeoShape(?array $geoShape): self
+    public function setGeoShape(?string $geoShape): self
     {
         $this->geoShape = $geoShape;
 
         return $this;
     }
 
-    public function getGeoPoint(): ?array
+    public function getGeoPoint(): ?string
     {
         return $this->geoPoint;
     }
 
-    public function setGeoPoint(?array $geoPoint): self
+    public function setGeoPoint(?string $geoPoint): self
     {
         $this->geoPoint = $geoPoint;
 
