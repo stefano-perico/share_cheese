@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55fde810-d5be-4d5f-9fa3-1cb72f20c9b7" name="Default Changelist" comment="test">
+    <list default="true" id="55fde810-d5be-4d5f-9fa3-1cb72f20c9b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/share_cheese.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/share_cheese.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,10 +129,16 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Q9KOufxNbggK9QyH3BFwoAgEMA" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -165,7 +174,7 @@
       <option name="presentableId" value="Default" />
       <updated>1567177342635</updated>
       <workItem from="1567177344890" duration="1091000" />
-      <workItem from="1567178538650" duration="8340000" />
+      <workItem from="1567178538650" duration="9332000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567421147251</created>
@@ -174,7 +183,21 @@
       <option name="project" value="LOCAL" />
       <updated>1567421147251</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="installation de composer form validator,&#10;faire un composer update">
+      <created>1567427333496</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1567427333496</updated>
+    </task>
+    <task id="LOCAL-00003" summary="modification de userFixtures, creation de userRegistration et ajout cdn &quot;materialize&quot;">
+      <created>1567428176611</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1567428176611</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +218,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="installation de composer form validator,&#10;faire un composer update" />
+    <MESSAGE value="modification de userFixtures, creation de userRegistration et ajout cdn &quot;materialize&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification de userFixtures, creation de userRegistration et ajout cdn &quot;materialize&quot;" />
   </component>
 </project>
