@@ -13,3 +13,26 @@ header {
     width: 500px;
     margin: 20px 0;
 }
+
+.bghead{
+
+    background-image: url("../img/fromage_home.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /*margin-bottom: 250rem;*/
+
+}
+
+.descsite img{
+    width: 50%;
+    position: center;
+}
+
+hr{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+/*#inscription{*/
+/*    margin: auto 0;*/
+/*}*/

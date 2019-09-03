@@ -28,6 +28,7 @@ class AdController extends AbstractController
             ]);
     }
 
+
     /**
      * @Route("/admin", name="ad_admin")
      * @IsGranted("ROLE_ADMIN")
@@ -78,6 +79,7 @@ class AdController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/{id}", name="ad_show", methods={"GET"})
      */
@@ -119,4 +121,5 @@ class AdController extends AbstractController
         }
         return $this->redirectToRoute('cheese_index');
     }
+
 }
