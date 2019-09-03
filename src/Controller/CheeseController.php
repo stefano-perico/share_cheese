@@ -56,8 +56,13 @@ class CheeseController extends AbstractController
      */
     public function show(Cheese $cheese): Response
     {
+
+        $geoPoint = $cheese->getGeoPoint();
+
         return $this->render('cheese/show.html.twig', [
             'cheese' => $cheese,
+            'geoPoint' => explode(',', $geoPoint),
+            'geoShape' => $cheese->getGeoShape()
         ]);
     }
 

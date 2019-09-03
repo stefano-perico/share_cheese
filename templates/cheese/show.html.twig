@@ -2,6 +2,14 @@
 
 {% block title %}Fromage{% endblock %}
 
+{% block stylesheets %}
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="">
+    <!-- MapBox CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
     <h2>Fromage</h2>
 
@@ -30,7 +38,82 @@
 
         </tbody>
     </table>
-    
+
+    <div class="map-container">
+        <div id="map">
+        </div>
+    </div>
+
     <a href="{{ path('cheese_index') }}" class="btn btn-primary">back to list</a>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+<!-- MapBox JS -->
+<script src='https://static-assets.mapbox.com/gl-pricing/dist/mapbox-gl.js'></script>
+
+<script type="text/javascript">
+
+class Map {
+
+    constructor(element, options = {}) {
+        this.element = element;
+        this.options = Object.assign({}, {
+            zoom: 8,
+            scrollWheelZoom: false
+        }, options)
+        this.initMap();
+        this.initMapboxLayer();
+        this.initGeoShape();
+    }
+
+
+    /**
+     * Initialise la carte Leaflet
+     * @returns {Object}
+     */
+    initMap() {
+        this.map = L.map('map', {
+            center: [{{ geoPoint[0] }}, {{ geoPoint[1] }}],
+            zoom: this.options.zoom,
+            scrollWheelZoom: this.options.scrollWheelZoom
+        });
+    }
+
+    initMapboxLayer() {
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}@2x.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 20,
+            minZoom: 2,
+            id: 'mapbox.streets',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            accessToken: 'pk.eyJ1IjoiZ3VzdGF2aW8iLCJhIjoiY2pxZ2l0Y2V5MTl2aTQybzQ1djg0eW9jaSJ9.CBOCBI2JZKdxRW8mse7QZQ'
+        }).addTo(this.map);
+    }
+
+    initGeoShape() {
+        var geoAreaShape = {
+            "type": "Feature",
+        	"properties": {
+        		"name": "{{ cheese.name }}",
+        		"amenity": "{{ cheese.area }}",
+        		"popupContent": "La région du {{ cheese.name }} !"
+        	},
+        	"geometry": {{ geoShape|raw }}
+        }
+        L.geoJSON(geoAreaShape).addTo(this.map)
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    new Map(document.getElementById('map'), {});
+})
+
+</script>
 
 {% endblock %}
