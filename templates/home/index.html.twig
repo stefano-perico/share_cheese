@@ -2,19 +2,52 @@
 
 {% block title %}Share Cheese!{% endblock %}
 
-{% block body %}
+{% block header %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    h1, h2{
+        font-size: 50px;
+    }
 </style>
 
 <div class="example-wrapper">
     <h1>Bienvenue chez Share Cheese !</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/cheese/share_cheese/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/cheese/share_cheese/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+    <p>Pour nous, part nous ! Le fromage vaincra !</p>
+
+    <div class="carousel carousel-slider">
+        <a class="carousel-item" href="#one!"><img src="img/planche_fromage.jpg"></a>
+        <a class="carousel-item" href="#two!"><img src="img/fromage_fondue.jpg"></a>
+        <a class="carousel-item" href="#three!"><img src="img/cave_fromage.jpg"></a>
+    </div>
 </div>
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.carousel');
+            var instance = M.Carousel.init(elems, options, {fullWidth: true});
+            instance.next(3);
+        });
+
+        // Or with jQuery
+
+        // $(document).ready(function(){
+        //     $('.carousel').carousel();
+        // })
+
+    </script>
+{% endblock %}
+
+{% block body %}
+    <h3>Du fromage pour tous nous réunir</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur deserunt dignissimos dolor esse illo,
+        laboriosam maxime non optio praesentium quae, sed similique, voluptate. Aspernatur dicta nihil sunt tempore voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur deserunt dignissimos dolor esse illo,
+        laboriosam maxime non optio praesentium quae, sed similique, voluptate. Aspernatur dicta nihil sunt tempore voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur deserunt dignissimos dolor esse illo,
+        laboriosam maxime non optio praesentium quae, sed similique, voluptate. Aspernatur dicta nihil sunt tempore voluptates.</p>
 {% endblock %}
