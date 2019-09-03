@@ -7,50 +7,51 @@
         <h1>Register</h1>
 
         <article class="row">
+            {{ form_start(registrationForm) }}
 
-                {{ form_start(registrationForm) }}
+            <div class="input-field col s12">
+                {{ form_label(registrationForm.pseudo) }}
+                {{ form_widget(registrationForm.pseudo) }}
+                {{ form_errors(registrationForm.pseudo) }}
+            </div>
 
-                <div class="input-field col s12 m6">
-                    {{ form_label(registrationForm.pseudo) }}
-                    {{ form_widget(registrationForm.pseudo) }}
-                    {{ form_errors(registrationForm.pseudo) }}
-                </div>
+            <div class="input-field col s12 m6">
+                {{ form_label(registrationForm.firstName) }}
+                {{ form_widget(registrationForm.firstName) }}
+                {{ form_errors(registrationForm.firstName) }}
+            </div>
 
-                <div class="input-field col s12 m6">
-                    {{ form_label(registrationForm.firstName) }}
-                    {{ form_widget(registrationForm.firstName) }}
-                    {{ form_errors(registrationForm.firstName) }}
-                </div>
+            <div class="input-field col s12 m6">
+                {{ form_label(registrationForm.lastName) }}
+                {{ form_widget(registrationForm.lastName) }}
+                {{ form_errors(registrationForm.lastName) }}
+            </div>
 
-                <div class="input-field col s12 m6">
-                    {{ form_label(registrationForm.lastName) }}
-                    {{ form_widget(registrationForm.lastName) }}
-                    {{ form_errors(registrationForm.lastName) }}
-                </div>
+            <div class="input-field col s12">
+                {{ form_label(registrationForm.email) }}
+                {{ form_widget(registrationForm.email) }}
+                {{ form_errors(registrationForm.email) }}
+            </div>
 
-                <div class="input-field col s12">
-                    {{ form_label(registrationForm.email) }}
-                    {{ form_widget(registrationForm.email) }}
-                    {{ form_errors(registrationForm.email) }}
-                </div>
+            <div class="input-field col s12">
+                {{ form_label(registrationForm.plainPassword, 'Password') }}
+                {{ form_widget(registrationForm.plainPassword) }}
+                {{ form_errors(registrationForm.plainPassword) }}
+            </div>
 
-                <div class="input-field col s12">
-                    {{ form_label(registrationForm.plainPassword, 'Password') }}
-                    {{ form_widget(registrationForm.plainPassword) }}
-                    {{ form_errors(registrationForm.plainPassword) }}
-                </div>
+            <div class="input-field col s6">
+                <label for="registration_form_agreeTerms">
+                {{ form_widget(registrationForm.agreeTerms) }}
+                <span>Agree to terms</span>
+                </label>
+                {{ form_errors(registrationForm.agreeTerms) }}
+            </div>
 
-                <div class="input-field col s6">
-                    {{ form_widget(registrationForm.agreeTerms, { 'attr': {'class': 'browser-default'} }) }}
-                    {{ form_label(registrationForm.agreeTerms) }}
-                    {{ form_errors(registrationForm.agreeTerms) }}
-                </div>
+            <div class="input-field right-align col s6">
+                <button class="btn">Register</button>
+            </div>
 
-                <div class="input-field right-align col s6">
-                    <button class="btn">Register</button>
-                </div>
-
-                {{ form_end(registrationForm) }}
+            {{ form_end(registrationForm) }}
 
         </article>
 
