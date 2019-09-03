@@ -8,29 +8,29 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Image</th>
-                <td><img src="{{ cheese.image }}" /></td>
+                <th>Nom de l'utilisateur</th>
+                <td>{{ ad.user.firstName }} {{ ad.user.lastName }}</td>
             </tr>
             <tr>
-                <th>Nom</th>
-                <td>{{ cheese.name }}</td>
-            </tr>
-            <tr>
-                <th>Département</th>
-                <td>{{ cheese.area }}</td>
+                <th>Fromage</th>
+                <td>{{ ad.cheese.name }}</td>
             </tr>
             <tr>
                 <th>Type de lait</th>
-                <td>{{ cheese.milk }}</td>
+                <td>{{ ad.cheese.milk }}</td>
             </tr>
             <tr>
-                <th>Wikipedia</th>
-                <td><a href="{{ cheese.frenchWikipedia }}">Wikipedia</a></td>
+                <th>Date de début d'échange</th>
+                <td>{{ ad.startDate ? ad.startDate|date('d/m/Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date de fin d'échange</th>
+                <td>{{ ad.endDate ? ad.endDate|date('d/m/Y') : '' }}</td>
             </tr>
 
         </tbody>
     </table>
-    
-    <a href="{{ path('cheese_index') }}" class="btn btn-primary">back to list</a>
+
+    <a href="{{ path('ad_index') }}" class="btn btn-primary">back to list</a>
 
 {% endblock %}

@@ -35,7 +35,7 @@ class CheeseController extends AbstractController
     public function new(Request $request, EntityManagerInterface $em): Response
     {
         $cheese = new Cheese();
-        $form = $this->createForm(Cheese::class, $cheese);
+        $form = $this->createForm(CheeseType::class, $cheese);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

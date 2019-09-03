@@ -38,13 +38,23 @@ class AdController extends AbstractController
             ]);
     }
 
+    /**
+     * Create a new Ad object
+     * @Route("/new", name="ad_new", methods={"GET", "POST"})
+     * @IsGranted("ROLE_USER")
+     * @param  Request                $request [description]
+     * @param  EntityManagerInterface $em      [description]
+     * @return Response                        [description]
+     */
     public function new(Request $request, EntityManagerInterface $em): Response
     {
         $ad = new Ad();
-        $form = $this->createForm(Ad::class, $ad);
+        $form = $this->createForm(AdType::class, $ad);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $ad->setStatus('New');
+            $ad->setUser($this->getUser());
             $em->persist($ad);
             $em->flush();
 
@@ -55,5 +65,47 @@ class AdController extends AbstractController
             'ad' => $ad,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="ad_show", methods={"GET"})
+     */
+    public function show(Ad $ad): Response
+    {
+        return $this->render('ad/show.html.twig', [
+            'ad' => $ad,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="ad_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Ad $ad, EntityManagerInterface $em): Response
+    {
+        $form = $this->createForm(AdType::class, $ad);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+
+            return $this->redirectToRoute('ad_index');
+        }
+
+        return $this->render('ad/edit.html.twig', [
+            'ad' => $ad,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="cheese_delete", methods={"POST"})
+     */
+    public function delete(Request $request, Ad $ad, EntityManagerInterface $em): Response
+    {
+        if($this->isCsrfTokenValid('delete'.$ad->getId(), $request->request->get('_token'))) {
+            $em->remove($ad);
+            $em->flush();
+        }
+        return $this->redirectToRoute('cheese_index');
     }
 }
