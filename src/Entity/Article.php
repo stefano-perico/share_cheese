@@ -28,7 +28,7 @@ class Article
     private $content;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      * @Gedmo\Slug(fields={"title"})
      */
     private $slug;

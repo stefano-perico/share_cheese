@@ -1,17 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BlogController!{% endblock %}
-
 {% block body %}
-
     <section class="container">
-        {% for article in articles %}
+
             <article>
+                <img src="{{ article.imageFilename }}" alt="">
                 <h2><a href="{{ path('blog_show', {'slug': article.slug}) }}">{{ article.title }}</a></h2>
                 <p><span>{{ article.author.firstName }} {{ article.author.lastName }}</span> le <span>{{ article.createdAt|date }}</span></p>
                 <p>{{ article.content }}</p>
             </article>
-        {% endfor %}
-    </section>
 
+    </section>
 {% endblock %}
+
+{% block title %}
+    {{ article.slug }}
+{% endblock %}
+
