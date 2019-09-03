@@ -3,51 +3,54 @@
 {% block title %}Share Cheese!{% endblock %}
 
 {% block header %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    h1, h2{
-        font-size: 50px;
-    }
-</style>
 
-<div class="example-wrapper">
-    <h1>Bienvenue chez Share Cheese !</h1>
-
-    <p>Pour nous, part nous ! Le fromage vaincra !</p>
-
-    <div class="carousel carousel-slider">
-        <a class="carousel-item" href="#one!"><img src="img/planche_fromage.jpg"></a>
-        <a class="carousel-item" href="#two!"><img src="img/fromage_fondue.jpg"></a>
-        <a class="carousel-item" href="#three!"><img src="img/cave_fromage.jpg"></a>
-    </div>
-</div>
+    <header>
+        <div class="bghead">
+            <div class="parallax-container">
+                <div class="center-align"><h1 class="white-text text-darken-2 ">Bienvenue chez Share Cheese</h1></div>
+                <div class="parallax"><img src="../img/fromage_home.jpg"></div>
+                <div class="center-align"><a id="inscription" class="waves-effect waves-light btn" href="{{ path('app_register') }}">Inscrivez-vous bande de batard</a></div>
+            </div>
+        </div>
+    </header>
 {% endblock %}
 
 {% block javascript %}
-    {{ parent() }}
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.carousel');
-            var instance = M.Carousel.init(elems, options, {fullWidth: true});
-            instance.next(3);
-        });
+{{ parent() }}
+<script>
 
-        // Or with jQuery
 
-        // $(document).ready(function(){
-        //     $('.carousel').carousel();
-        // })
-
-    </script>
+</script>
 {% endblock %}
 
 {% block body %}
-    <h3>Du fromage pour tous nous réunir</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur deserunt dignissimos dolor esse illo,
-        laboriosam maxime non optio praesentium quae, sed similique, voluptate. Aspernatur dicta nihil sunt tempore voluptates.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur deserunt dignissimos dolor esse illo,
-        laboriosam maxime non optio praesentium quae, sed similique, voluptate. Aspernatur dicta nihil sunt tempore voluptates.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur deserunt dignissimos dolor esse illo,
-        laboriosam maxime non optio praesentium quae, sed similique, voluptate. Aspernatur dicta nihil sunt tempore voluptates.</p>
+    <hr>
+    <div class="container row descsite">
+        <div class="col s4 ">
+            <img src="../img/morbier.jpg" alt="" class="circle responsive-img">
+            <h4>Notre Volonté</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur delectus distinctio dolore exercitationem expedita facilis illum iste magnam magni nesciunt nisi, numquam quo quod ratione rem reprehenderit similique ullam!</p>
+        </div>
+        <div class="col s4 ">
+            <img src="../img/parmesan.jpeg" alt="" class="circle responsive-img">
+            <h4>Inscrivez-Vous</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur delectus distinctio dolore exercitationem expedita facilis illum iste magnam magni nesciunt nisi, numquam quo quod ratione rem reprehenderit similique ullam!</p>
+        </div>
+        <div class="col s4 ">
+            <img src="../img/comte.jpg" alt="" class="circle responsive-img">
+            <h4>Les Annonces</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur delectus distinctio dolore exercitationem expedita facilis illum iste magnam magni nesciunt nisi, numquam quo quod ratione rem reprehenderit similique ullam!</p>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h3 class="center-align">Les Derniers Echanges</h3>
+        <div class="center-align"><a id="echanges" class="waves-effect waves-light btn" href="{{ path('app_register') }}">La Liste des Echanges</a></div>
+    </div>
+    <hr>
+    <div>
+        <h3 class="center-align">Les Dernières News</h3>
+        <div class="center-align"><a id="news" class="waves-effect waves-light btn" href="{{ path('app_register') }}">Les News</a></div>
+    </div>
+
 {% endblock %}
