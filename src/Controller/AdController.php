@@ -29,6 +29,17 @@ class AdController extends AbstractController
     }
 
     /**
+     * @Route("/admin", name="ad_admin")
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function admin(AdRepository $adRepository)
+    {
+        return $this->render('ad/admin.html.twig', [
+            'ads' => $adRepository->findAll(),
+            ]);
+    }
+
+    /**
      * @Route("/", name="ad_user_index")
      */
     public function userIndex(AdRepository $adRepository, User $user)

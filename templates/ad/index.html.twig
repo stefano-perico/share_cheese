@@ -6,40 +6,30 @@
 
     <h1>Annonces en base de données</h1>
 
-    <table class="table highlight responsive">
-        <thead>
-            <tr>
-                <th>Utilisateur</th>
-                <th>Fromage</th>
-                <th>Date de début</th>
-                <th>Date de fin</th>
-                <th>Statut</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for ad in ads %}
-            <tr>
-                <td>{{ ad.user.firstName }} {{ ad.user.lastName }}</td>
-                <td>{{ ad.cheese.name }}</td>
-                <td>{{ ad.startDate ? ad.startDate|date('d/m/Y') : '' }}</td>
-                <td>{{ ad.endDate ? ad.endDate|date('d/m/Y') : '' }}</td>
-                <td><span class="new badge" data-badge-caption="{{ ad.status }}"></span></td>
-                <td>
-                    <a href="{{ path('ad_show', {'id': ad.id}) }}">show</a>
-                    <a href="{{ path('ad_edit', {'id': ad.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
     <a href="{{ path('ad_new') }}" class="btn btn-primary">Create new</a>
 
-
+    {% for ad in ads %}
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ ad.cheese.image }}">
+                    <span class="card-title">Echange de {{ ad.cheese.name }}</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light red">
+                        <i class="material-icons">shopping_basket</i>
+                    </a>
+                </div>
+                <div class="card-content">
+                    <p>Par {{ ad.user.firstName }}</p>
+                    <p>{{ ad.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+        <div class="row">
+            <p>No records found</p>
+        </div>
+    {% endfor %}
 
 {% endblock %}
