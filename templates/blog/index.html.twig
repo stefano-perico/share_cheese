@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+
+    <section class="container">
+        {% for article in articles %}
+            <article>
+                <h2><a href="{{ path('blog_show', {'slug': article.slug}) }}">{{ article.title }}</a></h2>
+                <p><span>{{ article.author.firstName }} {{ article.author.lastName }}</span> le <span>{{ article.createdAt|date }}</span></p>
+                <p>{{ article.content }}</p>
+            </article>
+        {% endfor %}
+    </section>
+
+{% endblock %}

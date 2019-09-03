@@ -11,7 +11,8 @@
             <tr>
                 <th>Utilisateur</th>
                 <th>Fromage</th>
-                <th>Date de création</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
                 <th>Statut</th>
                 <th>Actions</th>
             </tr>
@@ -19,10 +20,11 @@
         <tbody>
         {% for ad in ads %}
             <tr>
-                <td>{{ ad.user.name }}</td>
+                <td>{{ ad.user.firstName }} {{ ad.user.lastName }}</td>
                 <td>{{ ad.cheese.name }}</td>
-                <td>{{ ad.creationDate }}</td>
-                <td>{{ ad.status }}</td>
+                <td>{{ ad.startDate ? ad.startDate|date('d/m/Y') : '' }}</td>
+                <td>{{ ad.endDate ? ad.endDate|date('d/m/Y') : '' }}</td>
+                <td><span class="new badge" data-badge-caption="{{ ad.status }}"></span></td>
                 <td>
                     <a href="{{ path('ad_show', {'id': ad.id}) }}">show</a>
                     <a href="{{ path('ad_edit', {'id': ad.id}) }}">edit</a>

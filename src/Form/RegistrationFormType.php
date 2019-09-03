@@ -35,6 +35,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+	        ->add('pseudo', TextType::class)
 	        ->add('firstName', TextType::class)
 	        ->add('lastName', TextType::class)
             ->add('agreeTerms', CheckboxType::class, [
@@ -44,6 +45,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'You should agree to our terms.',
                     ]),
                 ],
+                'attr' => ['type' => 'checkbox'],
             ])
         ;
     }

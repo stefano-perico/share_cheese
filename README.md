@@ -16,8 +16,8 @@ User
 	Rang→ Entity Rang CRUD → ROLE_EDITEUR→ [Cheese Master, Super Cheese…]
 	Voir une fiche user → rang → ses annonces
 
-Échange
-	Page Bourse d’échange
+Échange -> 	Page Bourse d’échange
+
 	P1 → if loger « CTA créer une annonce » else « CTA se connecter »
 	P2 → Trouver une annonce par fromage ou par nom
 	P3 → Annonces
@@ -27,18 +27,18 @@ User
 	Créer une annonce → ROLE_USER
 	Voir une annonce → Répondre à une annonce → ROLE_USER
 			
-Fromage
-	Page des fromages
+Fromage -> 	Page des fromages
+
 	CRUD → ROLE_FROMAGER
 	Single → redirect sur Wikipédia	
 
-Events
-	Page Events
+Events -> Page Events
+
 	CRUD → ROLE_USER, validé par ROLE_EDITEUR ?
 	Filtrer par date
 	
-Home
-	Page Home
+Home -> Page Home
+	
 	P1 → CTA Inscription
 	P2 → Explication du site → Inscription → trouver et ou créer une annonce → échanger
 	P3 → Dernier échanges x5 (User 1 à échanger fromage 1 contre fromage 2 avec User 2) 

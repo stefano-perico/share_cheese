@@ -1,3 +1,11 @@
+body, html {
+    margin: 0;
+}
+
+header {
+    padding: 2em;
+}
+
 /* Local CSS style Share Cheese - September 2019 */
 
 #map {

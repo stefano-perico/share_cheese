@@ -1,42 +1,46 @@
 {{ form_start(form) }}
 
-<div class="input-field col s12 m6">
-    {{ form_label(form.cheese.name) }}
-    {{ form_widget(form.cheese.name) }}
-    {{ form_errors(form.cheese.name) }}
-</div>
-
-<div class="input-field col s12 m6">
-    {{ form_label(form.name) }}
-    {{ form_widget(form.name) }}
-    {{ form_errors(form.name) }}
-</div>
-
 <div class="input-field col s12">
-    {{ form_label(form.frenchWikipedia) }}
-    {{ form_widget(form.frenchWikipedia) }}
-    {{ form_errors(form.frenchWikipedia) }}
+    {{ form_widget(form.cheese) }}
+    {{ form_errors(form.cheese) }}
 </div>
 <div class="input-field col s12">
-    {{ form_label(form.englishWikipedia) }}
-    {{ form_widget(form.englishWikipedia) }}
-    {{ form_errors(form.englishWikipedia) }}
+    {{ form_label(form.startDate) }}
+    {{ form_widget(form.startDate) }}
+    {{ form_errors(form.startDate) }}
 </div>
-
 <div class="input-field col s12">
-    {{ form_label(form.image) }}
-    {{ form_widget(form.image) }}
-    {{ form_errors(form.image) }}
+    {{ form_label(form.endDate) }}
+    {{ form_widget(form.endDate) }}
+    {{ form_errors(form.endDate) }}
 </div>
-
 <div class="input-field col s12">
-    {{ form_widget(form.milk) }}
-    {{ form_label(form.milk) }}
-    {{ form_errors(form.milk) }}
+    {{ form_label(form.description) }}
+    {{ form_widget(form.description, {'attr': {'class': 'materialize-textarea'}}) }}
+    {{ form_errors(form.description) }}
 </div>
 
 <div class="input-field left-align col s6">
     <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
 </div>
+{{ form_row(form._token) }}
 
-{{ form_end(form, {'render_rest': false}) }}
+{% block javascripts %}
+
+<script type="text/javascript">
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
+  });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, {
+        format: 'yyyy-mm-dd'
+    });
+});
+
+</script>
+
+{% endblock %}

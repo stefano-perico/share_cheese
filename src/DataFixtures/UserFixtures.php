@@ -15,13 +15,13 @@ class UserFixtures extends BaseFixtures
 		$this->userPasswordEncoder = $userPasswordEncoder;
 	}
 
-    public function loadData(ObjectManager $manager)
+    protected function loadData(ObjectManager $manager)
     {
 
-	    $this->createMany(User::class, 10, function (User $user, $coubinnt)
+	    $this->createMany(User::class, 10, function (User $user, $count)
 	    {
 		    $user
-			    ->setEmail("user$coubinnt@mail.com")
+			    ->setEmail("user$count@mail.com")
 			    ->setPassword($this->userPasswordEncoder->encodePassword($user, "User"))
 			    ->setPhone($this->faker->phoneNumber)
 			    ->setCity($this->faker->city)
