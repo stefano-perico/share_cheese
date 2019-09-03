@@ -18,8 +18,6 @@ class CheeseType extends AbstractType
             ->add('englishWikipedia')
             ->add('image')
             ->add('milk')
-            ->add('geoShape')
-            ->add('geoPoint')
         ;
     }
 
