@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fromage{% endblock %}
+
+{% block body %}
+    <h2>Fromage</h2>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ cheese.image }}" /></td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ cheese.name }}</td>
+            </tr>
+            <tr>
+                <th>Département</th>
+                <td>{{ cheese.area }}</td>
+            </tr>
+            <tr>
+                <th>Type de lait</th>
+                <td>{{ cheese.milk }}</td>
+            </tr>
+            <tr>
+                <th>Wikipedia</th>
+                <td><a href="{{ cheese.frenchWikipedia }}">Wikipedia</a></td>
+            </tr>
+
+        </tbody>
+    </table>
+    
+    <a href="{{ path('cheese_index') }}" class="btn btn-primary">back to list</a>
+
+{% endblock %}
