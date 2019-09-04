@@ -1,11 +1,12 @@
 /* Local CSS style Share Cheese - September 2019 */
 
-body, html {
-    margin: 0;
-}
-
 header {
     padding: 2em;
+}
+
+hr {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 #map {
@@ -14,25 +15,24 @@ header {
     margin: 20px 0;
 }
 
-.bghead{
-
+.bghead {
     background-image: url("../img/fromage_home.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     /*margin-bottom: 250rem;*/
-
 }
 
-.descsite img{
+.descsite img {
     width: 50%;
     position: center;
 }
 
-hr{
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+.card-action {
+    display: flex;
+    justify-content: center;
 }
-/*#inscription{*/
-/*    margin: auto 0;*/
-/*}*/
+
+/*#inscription{
+    margin: auto 0;
+}*/

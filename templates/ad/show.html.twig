@@ -3,12 +3,12 @@
 {% block title %}Fromage{% endblock %}
 
 {% block body %}
-    <h2>Fromage</h2>
+    <h2>Echange de {{ ad.cheese.name }}</h2>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Nom de l'utilisateur</th>
+                <th>Nom de l'échangiste</th>
                 <td>{{ ad.user.firstName }} {{ ad.user.lastName }}</td>
             </tr>
             <tr>

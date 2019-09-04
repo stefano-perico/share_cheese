@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Fromage{% endblock %}
+{% block title %}{{ cheese.name }}{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -11,7 +11,10 @@
 {% endblock %}
 
 {% block body %}
-    <h2>Fromage</h2>
+    <div class="row">
+        <h2>{{ cheese.name }}</h2>
+    </div>
+
 
     <table class="table">
         <tbody>
@@ -43,7 +46,10 @@
         </div>
     </div>
 
-    <a href="{{ path('cheese_index') }}" class="btn btn-primary">back to list</a>
+    <div class="row">
+        <a href="{{ path('cheese_index') }}" class="btn btn-primary">back to list</a>
+    </div>
+
 
 {% endblock %}
 

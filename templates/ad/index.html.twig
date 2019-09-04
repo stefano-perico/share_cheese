@@ -3,10 +3,12 @@
 {% block title %}Liste d'annonces{% endblock %}
 
 {% block body %}
-
-    <h1>Annonces en base de données</h1>
-
-    <a href="{{ path('ad_new') }}" class="btn btn-primary">Create new</a>
+    <div class="row">
+        <h1>Toutes les annonces</h1>
+    </div>
+    <div class="row">
+        <a href="{{ path('ad_new') }}" class="btn btn-primary">Créez une annonce</a>
+    </div>
 
     {% for ad in ads %}
     <div class="row">
@@ -14,22 +16,23 @@
             <div class="card">
                 <div class="card-image">
                     <img src="{{ ad.cheese.image }}">
-                    <span class="card-title">Echange de {{ ad.cheese.name }}</span>
-                    <a class="btn-floating halfway-fab waves-effect waves-light red">
-                        <i class="material-icons">shopping_basket</i>
+                    <a href="{{ path('ad_show', {id: ad.id}) }}" class="btn-floating halfway-fab waves-effect waves-light red">
+                        <i class="material-icons">subject</i>
                     </a>
                 </div>
                 <div class="card-content">
+                    <span class="card-title">Echange de {{ ad.cheese.name }}</span>
                     <p>Par {{ ad.user.firstName }}</p>
                     <p>{{ ad.description }}</p>
+                </div>
+                <div class="card-action">
+                    <a class="waves-effect waves-light btn-small"><i class="material-icons left">shopping_basket</i>ECHANGEZ</a>
                 </div>
             </div>
         </div>
     </div>
     {% else %}
-        <div class="row">
-            <p>No records found</p>
-        </div>
+    <p>No records found</p>
     {% endfor %}
 
 {% endblock %}
