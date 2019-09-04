@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste d'échanges{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h1>Tous les échanges</h1>
+    </div>
+
+    {% for ad in ads %}
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ exchange.ad.cheese.image }}">
+                    <a href="{{ path('exchange_show', {id: exchange.id}) }}" class="btn-floating halfway-fab waves-effect waves-light red">
+                        <i class="material-icons">subject</i>
+                    </a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Echange de {{ exchange.ad.cheese.name }}</span>
+                    <p>Par {{ exchange.ad.user.firstName }}</p>
+                    <p>{{ exchange.ad.description }}</p>
+                </div>
+                <div class="card-action">
+                    <a class="waves-effect waves-light btn-small"><i class="material-icons left">shopping_basket</i>ECHANGEZ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <p>No records found</p>
+    {% endfor %}
+
+{% endblock %}

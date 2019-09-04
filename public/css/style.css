@@ -6,6 +6,7 @@ hr {
     margin-bottom: 5rem;
 }
 
+<<<<<<< HEAD
 h1{
     text-shadow: black 0.1em 0.1em 0.1em
 }
@@ -16,6 +17,8 @@ h1{
     margin: 20px 0;
 }
 
+=======
+>>>>>>> e2635055c14f76ab0d8aee4bde1221295506d60a
 .bghead {
     background-image: url("../img/fromage_home.jpg");
     background-repeat: no-repeat;
@@ -38,8 +41,15 @@ h1{
     justify-content: center;
 }
 
+<<<<<<< HEAD
 table.striped > tbody > tr:nth-child(odd) {
     background-color: rgba(238, 110, 115, 0.5);
+=======
+.card-badge {
+    position: absolute;
+    top: 5%;
+    z-index: 10;
+>>>>>>> e2635055c14f76ab0d8aee4bde1221295506d60a
 }
 
 /*#inscription{

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Ad;
 use App\Form\AdType;
 use App\Repository\AdRepository;
+use App\Repository\ExchangeRepository;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,10 +22,10 @@ class AdController extends AbstractController
     /**
      * @Route("/", name="ad_index")
      */
-    public function index(AdRepository $adRepository)
+    public function index(AdRepository $adRepository, ExchangeRepository $exchangeRepository)
     {
         return $this->render('ad/index.html.twig', [
-            'ads' => $adRepository->findAll(),
+                'ads' => $adRepository->findAll(),
             ]);
     }
 
