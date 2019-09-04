@@ -4,7 +4,8 @@
 
 {% block body %}
 
-    <h1>Fromages en base de données</h1>
+    <h1 class="center-align">Fromages en base de données</h1>
+    <hr>
 
     <table class="table highlight responsive striped">
         <thead>
@@ -33,7 +34,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+    <br>
     <a href="{{ path('cheese_new') }}" class="btn btn-primary">Create new</a>
 
 

@@ -9,6 +9,10 @@ hr {
     margin-bottom: 5rem;
 }
 
+h1{
+    text-shadow: black 0.1em 0.1em 0.1em
+}
+
 #map {
     height: 500px;
     width: 500px;
@@ -23,6 +27,10 @@ hr {
     /*margin-bottom: 250rem;*/
 }
 
+.contentHead{
+    margin-top: 10rem;
+}
+
 .descsite img {
     width: 50%;
     position: center;
@@ -31,6 +39,10 @@ hr {
 .card-action {
     display: flex;
     justify-content: center;
+}
+
+table.striped > tbody > tr:nth-child(odd) {
+    background-color: rgba(238, 110, 115, 0.5);
 }
 
 /*#inscription{
