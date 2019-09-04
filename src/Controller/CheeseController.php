@@ -58,11 +58,16 @@ class CheeseController extends AbstractController
     {
 
         $geoPoint = $cheese->getGeoPoint();
+        $geoShape = $cheese->getGeoShape();
+        if (!$geoPoint) {
+            $geoPoint = '0, 0';
+            $geoShape = '[1, 1]';
+        }
 
         return $this->render('cheese/show.html.twig', [
             'cheese' => $cheese,
             'geoPoint' => explode(',', $geoPoint),
-            'geoShape' => $cheese->getGeoShape()
+            'geoShape' => $geoShape
         ]);
     }
 

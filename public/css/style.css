@@ -9,12 +9,6 @@ hr {
     margin-bottom: 5rem;
 }
 
-#map {
-    height: 500px;
-    width: 500px;
-    margin: 20px 0;
-}
-
 .bghead {
     background-image: url("../img/fromage_home.jpg");
     background-repeat: no-repeat;
@@ -31,6 +25,12 @@ hr {
 .card-action {
     display: flex;
     justify-content: center;
+}
+
+.card-badge {
+    position: absolute;
+    top: 5%;
+    z-index: 10;
 }
 
 /*#inscription{

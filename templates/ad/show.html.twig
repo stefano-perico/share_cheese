@@ -3,34 +3,39 @@
 {% block title %}Fromage{% endblock %}
 
 {% block body %}
-    <h2>Echange de {{ ad.cheese.name }}</h2>
+    <div class="row">
+        <h2>Echange de {{ ad.cheese.name }}</h2>
+    </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Nom de l'échangiste</th>
-                <td>{{ ad.user.firstName }} {{ ad.user.lastName }}</td>
-            </tr>
-            <tr>
-                <th>Fromage</th>
-                <td>{{ ad.cheese.name }}</td>
-            </tr>
-            <tr>
-                <th>Type de lait</th>
-                <td>{{ ad.cheese.milk }}</td>
-            </tr>
-            <tr>
-                <th>Date de début d'échange</th>
-                <td>{{ ad.startDate ? ad.startDate|date('d/m/Y') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Date de fin d'échange</th>
-                <td>{{ ad.endDate ? ad.endDate|date('d/m/Y') : '' }}</td>
-            </tr>
+    <div class="row">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Nom de l'utilisateur échangeur</th>
+                    <td>{{ ad.user.firstName }} {{ ad.user.lastName }}</td>
+                </tr>
+                <tr>
+                    <th>Fromage</th>
+                    <td><a href="{{ path('cheese_show', {id: ad.cheese.id }) }}">{{ ad.cheese.name }}</a></td>
+                </tr>
+                <tr>
+                    <th>Type de lait</th>
+                    <td>{{ ad.cheese.milk }}</td>
+                </tr>
+                <tr>
+                    <th>Date de début d'échange</th>
+                    <td>{{ ad.startDate ? ad.startDate|date('d/m/Y') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Date de fin d'échange</th>
+                    <td>{{ ad.endDate ? ad.endDate|date('d/m/Y') : '' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-        </tbody>
-    </table>
-
-    <a href="{{ path('ad_index') }}" class="btn btn-primary">back to list</a>
+    <div class="row">
+        <a href="{{ path('ad_index') }}" class="btn btn-primary">retour à la liste</a>
+    </div>
 
 {% endblock %}

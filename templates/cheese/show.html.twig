@@ -15,31 +15,33 @@
         <h2>{{ cheese.name }}</h2>
     </div>
 
+    <div class="row">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Image</th>
+                    <td><img src="{{ cheese.image }}" /></td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ cheese.name }}</td>
+                </tr>
+                <tr>
+                    <th>Département</th>
+                    <td>{{ cheese.area }}</td>
+                </tr>
+                <tr>
+                    <th>Type de lait</th>
+                    <td>{{ cheese.milk }}</td>
+                </tr>
+                <tr>
+                    <th>Wikipedia</th>
+                    <td><a href="{{ cheese.frenchWikipedia }}">Wikipedia</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Image</th>
-                <td><img src="{{ cheese.image }}" /></td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ cheese.name }}</td>
-            </tr>
-            <tr>
-                <th>Département</th>
-                <td>{{ cheese.area }}</td>
-            </tr>
-            <tr>
-                <th>Type de lait</th>
-                <td>{{ cheese.milk }}</td>
-            </tr>
-            <tr>
-                <th>Wikipedia</th>
-                <td><a href="{{ cheese.frenchWikipedia }}">Wikipedia</a></td>
-            </tr>
-        </tbody>
-    </table>
 
     <div class="map-container">
         <div id="map">
@@ -47,7 +49,7 @@
     </div>
 
     <div class="row">
-        <a href="{{ path('cheese_index') }}" class="btn btn-primary">back to list</a>
+        <a href="{{ path('cheese_index') }}" class="btn btn-primary">liste des fromages</a>
     </div>
 
 
@@ -69,20 +71,30 @@ class Map {
     constructor(element, options = {}) {
         this.element = element;
         this.options = Object.assign({}, {
+            geoPoint: {{ geoPoint[0] }},
             zoom: 8,
             scrollWheelZoom: false
         }, options)
-        this.initMap();
-        this.initMapboxLayer();
-        this.initGeoShape();
+
+        if(this.options.geoPoint === 0) {
+            this.noMap()
+        } else {
+            this.initMap()
+            this.initMapboxLayer()
+            this.initGeoShape()
+        }
     }
 
+    noMap() {
+        let p = document.createElement('p')
+        p.innerHTML = "Pas de carte disponible"
+        this.element.appendChild(p)
+    }
 
-    /**
-     * Initialise la carte Leaflet
-     * @returns {Object}
-     */
     initMap() {
+        this.element.style.margin = '20px'
+        this.element.style.height = '500px'
+        this.element.style.width = '500px'
         this.map = L.map('map', {
             center: [{{ geoPoint[0] }}, {{ geoPoint[1] }}],
             zoom: this.options.zoom,
@@ -98,7 +110,7 @@ class Map {
             id: 'mapbox.streets',
             style: 'mapbox://styles/mapbox/streets-v11',
             accessToken: 'pk.eyJ1IjoiZ3VzdGF2aW8iLCJhIjoiY2pxZ2l0Y2V5MTl2aTQybzQ1djg0eW9jaSJ9.CBOCBI2JZKdxRW8mse7QZQ'
-        }).addTo(this.map);
+        }).addTo(this.map)
     }
 
     initGeoShape() {
@@ -107,7 +119,7 @@ class Map {
         	"properties": {
         		"name": "{{ cheese.name }}",
         		"amenity": "{{ cheese.area }}",
-        		"popupContent": "La région du {{ cheese.name }} !"
+        		"popupContent": "{{ cheese.area }}"
         	},
         	"geometry": {{ geoShape|raw }}
         }
@@ -116,7 +128,7 @@ class Map {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    new Map(document.getElementById('map'), {});
+    new Map(document.getElementById('map'), {})
 })
 
 </script>
