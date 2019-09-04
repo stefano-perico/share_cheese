@@ -32,29 +32,4 @@ class BlogController extends AbstractController
 		    'article' => $article
 	    ]);
     }
-
-	/**
-	 * @Route("/create", name="blog_new")
-	 */
-    public function new(): Response
-    {
-	    // TODO make create
-    }
-
-	/**
-	 * @Route("/{slug}/edit", name="blog_edit")
-	 */
-    public function edit(): Response
-    {
-	    // TODO make update
-    }
-
-	/**
-	 * @Route("/{slug}", name="blog_delete")
-	 */
-    public function delete(Article $article): Response
-    {
-	    // TODO make delete
-    }
-
 }

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>New Article</h1>
+
+    { include('article_admin/_form.html.twig') }}
+
+    <a href="{{ path('article_admin_list') }}">back to list</a>
+{% endblock %}
+
+{% block title %}
+    New Article
+{% endblock %}
+
