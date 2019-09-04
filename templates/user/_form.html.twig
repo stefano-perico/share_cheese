@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+
+<div class="input-field col s12">
+    {{ form_widget(form.cheeseGiven) }}
+    {{ form_errors(form.cheeseGiven) }}
+</div>
+<div class="input-field col s12">
+    {{ form_label(form.message) }}
+    {{ form_widget(form.message, {'attr': {'class': 'materialize-textarea'}}) }}
+    {{ form_errors(form.message) }}
+</div>
+
+<div class="input-field left-align col s6">
+    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+</div>
+{{ form_row(form._token) }}

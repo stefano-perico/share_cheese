@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Ad;
 use App\Form\AdType;
 use App\Repository\AdRepository;
-use App\Repository\ExchangeRepository;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,13 +21,12 @@ class AdController extends AbstractController
     /**
      * @Route("/", name="ad_index")
      */
-    public function index(AdRepository $adRepository, ExchangeRepository $exchangeRepository)
+    public function index(AdRepository $adRepository)
     {
         return $this->render('ad/index.html.twig', [
                 'ads' => $adRepository->findAll(),
             ]);
     }
-
 
     /**
      * @Route("/admin", name="ad_admin")
@@ -55,9 +53,6 @@ class AdController extends AbstractController
      * Create a new Ad object
      * @Route("/new", name="ad_new", methods={"GET", "POST"})
      * @IsGranted("ROLE_USER")
-     * @param  Request                $request [description]
-     * @param  EntityManagerInterface $em      [description]
-     * @return Response                        [description]
      */
     public function new(Request $request, EntityManagerInterface $em): Response
     {
@@ -112,7 +107,7 @@ class AdController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="cheese_delete", methods={"POST"})
+     * @Route("/{id}", name="ad_delete", methods={"POST"})
      */
     public function delete(Request $request, Ad $ad, EntityManagerInterface $em): Response
     {
@@ -120,7 +115,7 @@ class AdController extends AbstractController
             $em->remove($ad);
             $em->flush();
         }
-        return $this->redirectToRoute('cheese_index');
+        return $this->redirectToRoute('ad_index');
     }
 
 }

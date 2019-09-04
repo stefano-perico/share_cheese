@@ -3,32 +3,26 @@
 {% block title %}Utilisateurs en base de données{% endblock %}
 
 {% block body %}
-<div class="row">
-    <h1>Utilisateurs en base de données</h1>
-</div>
 
-<div class="row">
+    <h1>Utilisateurs en base de données</h1>
+
     <table class="table highlight responsive striped">
         <thead>
             <tr>
-                <th>Pseudo</th>
                 <th>Prénom</th>
                 <th>Nom</th>
-                <th>Email</th>
                 <th>Nombre d'annonces postées</th>
-                <th>Nombre d'échanges demandés</th>
+                <th>Nombre d'échanges postés</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for user in users %}
             <tr>
-                <td>{{ user.pseudo }}</td>
                 <td>{{ user.firstName }}</td>
-                <td>{{ user.lastName }}</td>
-                <td>{{ user.email }}</td>
+                <td>{{ user.firstName }}</td>
                 <td>{{ user.ads|length }}</td>
-                <td>{{ user.createdExchanges|length }}</td>
+                <td>{{ user.exchanges|length }}</td>
                 <td>
                     <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
@@ -41,6 +35,9 @@
         {% endfor %}
         </tbody>
     </table>
-</div>
+
+    <a href="{{ path('user_new') }}" class="btn btn-primary">Create new</a>
+
+
 
 {% endblock %}

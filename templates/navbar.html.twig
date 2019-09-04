@@ -9,12 +9,21 @@
                 <li>
                     <a href="{{ path('cheese_index') }}">Cheeses</a>
                 </li>
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <li>
+                    <a class="nav-link" href="{{ path('user_show', {'id': app.user.id}) }}">My account</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                </li>
+                {% else %}
                 <li>
                     <a href="{{ path('app_login') }}">Login</a>
                 </li>
                 <li>
                     <a href="{{ path('app_register') }}">Register</a>
                 </li>
+                {% endif %}
             </ul>
             <form>
                 <div class="input-field right hide-on-med-and-down">

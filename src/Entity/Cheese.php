@@ -63,9 +63,15 @@ class Cheese
      */
     private $ads;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Exchange", mappedBy="cheeseGiven")
+     */
+    private $exchanges;
+
     public function __construct()
     {
         $this->ads = new ArrayCollection();
+        $this->exchanges = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -194,6 +200,37 @@ class Cheese
             // set the owning side to null (unless already changed)
             if ($ad->getCheese() === $this) {
                 $ad->setCheese(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Exchange[]
+     */
+    public function getExchanges(): Collection
+    {
+        return $this->exchanges;
+    }
+
+    public function addExchange(Exchange $exchange): self
+    {
+        if (!$this->exchanges->contains($exchange)) {
+            $this->exchanges[] = $exchange;
+            $exchange->setCheeseGiven($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExchange(Exchange $exchange): self
+    {
+        if ($this->exchanges->contains($exchange)) {
+            $this->exchanges->removeElement($exchange);
+            // set the owning side to null (unless already changed)
+            if ($exchange->getCheeseGiven() === $this) {
+                $exchange->setCheeseGiven(null);
             }
         }
 

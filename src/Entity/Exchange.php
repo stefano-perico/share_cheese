@@ -22,7 +22,7 @@ class Exchange
     private $status;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateValidated;
 
@@ -35,6 +35,28 @@ class Exchange
      * @ORM\OneToOne(targetEntity="App\Entity\Ad", cascade={"persist", "remove"})
      */
     private $ad;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $message;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Cheese", inversedBy="exchanges")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $cheeseGiven;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="createdExchanges")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $creator;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateProposed;
 
     public function getId(): ?int
     {
@@ -85,6 +107,54 @@ class Exchange
     public function setAd(?Ad $ad): self
     {
         $this->ad = $ad;
+
+        return $this;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
+    public function setMessage(?string $message): self
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    public function getCheeseGiven(): ?Cheese
+    {
+        return $this->cheeseGiven;
+    }
+
+    public function setCheeseGiven(?Cheese $cheeseGiven): self
+    {
+        $this->cheeseGiven = $cheeseGiven;
+
+        return $this;
+    }
+
+    public function getCreator(): ?User
+    {
+        return $this->creator;
+    }
+
+    public function setCreator(?User $creator): self
+    {
+        $this->creator = $creator;
+
+        return $this;
+    }
+
+    public function getDateProposed(): ?\DateTimeInterface
+    {
+        return $this->dateProposed;
+    }
+
+    public function setDateProposed(\DateTimeInterface $dateProposed): self
+    {
+        $this->dateProposed = $dateProposed;
 
         return $this;
     }
