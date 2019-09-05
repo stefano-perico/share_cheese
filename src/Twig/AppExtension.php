@@ -4,7 +4,7 @@
 namespace App\Twig;
 
 
-use App\service\UploaderHelper;
+use App\Service\UploaderHelper;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 use Twig\Extension\AbstractExtension;

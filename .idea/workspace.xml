@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55fde810-d5be-4d5f-9fa3-1cb72f20c9b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/packages/liip_imagine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/translation.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes/liip_imagine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translations/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ArticlesFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/ArticlesFixtures.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -150,6 +142,10 @@
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/liip/imagine-bundle" />
       <path value="$PROJECT_DIR$/vendor/imagine/imagine" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/oneup/flysystem-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Q9KOufxNbggK9QyH3BFwoAgEMA" />
@@ -160,7 +156,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../my_project" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -176,6 +172,7 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/DataFixtures/Resources/images" />
       <recent name="$PROJECT_DIR$/public/js" />
       <recent name="$PROJECT_DIR$/public/css" />
     </key>
@@ -204,7 +201,7 @@
       <updated>1567177342635</updated>
       <workItem from="1567177344890" duration="1091000" />
       <workItem from="1567178538650" duration="27741000" />
-      <workItem from="1567587619405" duration="22401000" />
+      <workItem from="1567587619405" duration="35647000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567421147251</created>
@@ -297,7 +294,42 @@
       <option name="project" value="LOCAL" />
       <updated>1567677579620</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="FAIRE UN COMPOSER INSTALL. Modification du service UploaderHelper (ajout d'une const pour la route des images d'article). Création d'un service Twig pour créer un nouveau filtre afin d'atteindre la base du site et afficher les images uploadées. Installation de liip/imagine-bundle pour créer des thumbnail et réduire la taille des images.">
+      <created>1567677624786</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1567677624786</updated>
+    </task>
+    <task id="LOCAL-00015" summary="modification des fixtures d'article, pour utiliser UploaderHelper">
+      <created>1567680969120</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1567680969120</updated>
+    </task>
+    <task id="LOCAL-00016" summary="installation composer require oneup/flysystem-bundle">
+      <created>1567685067628</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1567685067628</updated>
+    </task>
+    <task id="LOCAL-00017" summary="mise en place de la pagination dans blog et admin/article">
+      <created>1567694473111</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1567694473111</updated>
+    </task>
+    <task id="LOCAL-00018" summary="mise en place de la pagination dans blog et admin/article">
+      <created>1567694803479</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1567694803479</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +360,9 @@
     <MESSAGE value="faire un composer require !!! installation de vicUploader et de mailer" />
     <MESSAGE value="création du service uploaderHelper, ajout du controller ArticleAdminController" />
     <MESSAGE value="FAIRE UN COMPOSER INSTALL. Modification du service UploaderHelper (ajout d'une const pour la route des images d'article). Création d'un service Twig pour créer un nouveau filtre afin d'atteindre la base du site et afficher les images uploadées. Installation de liip/imagine-bundle pour créer des thumbnail et réduire la taille des images." />
-    <option name="LAST_COMMIT_MESSAGE" value="FAIRE UN COMPOSER INSTALL. Modification du service UploaderHelper (ajout d'une const pour la route des images d'article). Création d'un service Twig pour créer un nouveau filtre afin d'atteindre la base du site et afficher les images uploadées. Installation de liip/imagine-bundle pour créer des thumbnail et réduire la taille des images." />
+    <MESSAGE value="modification des fixtures d'article, pour utiliser UploaderHelper" />
+    <MESSAGE value="installation composer require oneup/flysystem-bundle" />
+    <MESSAGE value="mise en place de la pagination dans blog et admin/article" />
+    <option name="LAST_COMMIT_MESSAGE" value="mise en place de la pagination dans blog et admin/article" />
   </component>
 </project>

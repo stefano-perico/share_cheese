@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,10 +18,19 @@ class BlogController extends AbstractController
     /**
      * @Route("/", name="blog_index")
      */
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(Request $request, ArticleRepository $articleRepository, PaginatorInterface $paginator): Response
     {
+    	$term = $request->query->get('term');
+		$queryBuilder = $articleRepository->getWithSearchQueryBuilder($term);
+
+    	$articlesPagination = $paginator->paginate(
+    		$queryBuilder,
+		    $request->query->getInt('page', 1),
+		    10
+	    );
+
         return $this->render('blog/index.html.twig', [
-            'articles' => $articleRepository->findAll(),
+            'articlesPagination' => $articlesPagination,
         ]);
     }
 

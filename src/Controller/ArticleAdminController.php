@@ -7,6 +7,7 @@ use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use App\Service\UploaderHelper;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,11 +22,19 @@ class ArticleAdminController extends AbstractController
     /**
      * @Route("/", name="article_admin_list")
      */
-    public function index(ArticleRepository $articleRepository)
+    public function index(Request $request, ArticleRepository $articleRepository, PaginatorInterface $paginator)
     {
+    	$term = $request->query->get('term');
+    	$queryBuilder = $articleRepository->getWithSearchQueryBuilder($term);
+
+    	$articlePagination = $paginator->paginate(
+    	    $queryBuilder, /* query NOT result */
+		    $request->query->getInt('page', 1), /*page number*/
+		    10 /* limit per page */
+	    );
 
         return $this->render('article_admin/index.html.twig', [
-            'articles' => $articleRepository->findAll(),
+            'articlesPagination' => $articlePagination,
         ]);
     }
 

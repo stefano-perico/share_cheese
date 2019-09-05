@@ -4,9 +4,11 @@ namespace App\DataFixtures;
 
 use App\Entity\Article;
 use App\Entity\User;
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use App\Service\UploaderHelper;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\File\File;
 
 class ArticlesFixtures extends BaseFixtures implements DependentFixtureInterface
 {
@@ -22,18 +24,35 @@ class ArticlesFixtures extends BaseFixtures implements DependentFixtureInterface
 		'Pommes de terre farcies au bleu',
 		'Pomme de terre farcie au jambon de Parme',
 		'Gratin de courgettes au fromage bleu',
-
 		];
 
-    protected function loadData(ObjectManager $manager)
+	private static $images = [
+		'cheese-3373604_640.jpg',
+		'cheese-2205913_640.jpg',
+		'cheese-1972744_640.jpg',
+		'cheese-1149471_640.jpg',
+		'cheese-2785_640.jpg',
+	];
+
+	private $uploaderHelper;
+
+	public function __construct(UploaderHelper $uploaderHelper)
+	{
+
+		$this->uploaderHelper = $uploaderHelper;
+	}
+
+	protected function loadData(ObjectManager $manager)
     {
 		$this->createMany(Article::class, 15, function (Article $article, $count){
+
+			$imageFilename = $this->fakeUploadImage();
 
 			$article
 				->setAuthor($this->getRandomReference(User::class))
 				->setContent($this->faker->realText(500))
 				->setTitle($this->faker->randomElement(self::$title))
-				->setImageFilename($this->faker->imageUrl(640, 480))
+				->setImageFilename($imageFilename)
 				;
 		});
 
@@ -53,5 +72,18 @@ class ArticlesFixtures extends BaseFixtures implements DependentFixtureInterface
 		return [
 			UserFixtures::class,
 		];
+	}
+
+	private function fakeUploadImage(): string
+	{
+		$randomImage = $this->faker->randomElement(self::$images);
+
+		$fs = new Filesystem();
+		$targetPath = sys_get_temp_dir().'/'.$randomImage;
+		$fs->copy(__DIR__.'/Resources/images/'.$randomImage, $targetPath, true);
+
+		return $imageFilename = $this->uploaderHelper
+			->uploadArticleImage(new File($targetPath));
+
 	}
 }
