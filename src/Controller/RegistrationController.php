@@ -48,8 +48,8 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             //$entityManager->flush();
 
-            $message = (new \Swift_Message('Hello Email'))
-                ->setFrom('cheese-a30948@inbox.mailtrap.io')
+            $message = (new \Swift_Message())
+                ->setFrom('send@example.com')
                 ->setTo('recipient@example.com')
                 ->setBody('Test de mail'
                 //$this->renderView(

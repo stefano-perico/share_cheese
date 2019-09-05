@@ -15,7 +15,7 @@ class SwiftMailerController extends AbstractController
     {
 
         $message = (new Swift_Message('Hello Email'))
-            ->setFrom('cheese-a30948@inbox.mailtrap.io')
+            ->setFrom('send@example.com')
             ->setTo('recipient@example.com')
             ->setBody('Test de mail'
                 //$this->renderView(
@@ -29,7 +29,7 @@ class SwiftMailerController extends AbstractController
 
         $mailer->send($message);
 
-//        return $this->render(...);
+        return $this->render($message);
 //        return $this->render('swift_mailer/index.html.twig', [
 //            'controller_name' => 'SwiftMailerController',
 //        ]);
