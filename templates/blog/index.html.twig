@@ -5,11 +5,18 @@
 {% block body %}
 
     <section class="container">
-        {% for article in articles %}
-            <article>
-                <h2><a href="{{ path('blog_show', {'slug': article.slug}) }}">{{ article.title }}</a></h2>
-                <p><span>{{ article.author.firstName }} {{ article.author.lastName }}</span> le <span>{{ article.createdAt|date }}</span></p>
-                <p>{{ article.content }}</p>
+        {% for article  in articles %}
+            <article class="article_container">
+                <a href="{{ path('blog_show', {'slug': article.slug}) }}">
+                    <img src="{{ uploaded_asset(article.imagePath) }}" alt="{{ article.imageFilename }}">
+                    <aside class="article_img">
+                        <span>{{ article.title }}</span>
+                        <br>
+                        <span>{{ article.author.lastName }} {{ article.author.firstName}}</span>
+                        <span>{{ article.createdAt|date }}</span>
+                    </aside>
+                </a>
+
             </article>
         {% endfor %}
     </section>

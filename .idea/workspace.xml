@@ -2,20 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55fde810-d5be-4d5f-9fa3-1cb72f20c9b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/uploads/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ArticleAdminController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/ArticleType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/UploaderHelper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/article_admin/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/article_admin/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/article_admin/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/article_admin/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190903131306.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190903132501.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/AppExtension.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ArticleAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArticleAdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ArticleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ArticleRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/UploaderHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/UploaderHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article_admin/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article_admin/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article_admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article_admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article_admin/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article_admin/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/show.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +205,7 @@
       <updated>1567177342635</updated>
       <workItem from="1567177344890" duration="1091000" />
       <workItem from="1567178538650" duration="27741000" />
-      <workItem from="1567587619405" duration="15627000" />
+      <workItem from="1567587619405" duration="22145000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567421147251</created>
@@ -285,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567599278904</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="création du service uploaderHelper, ajout du controller ArticleAdminController">
+      <created>1567608884903</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1567608884903</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,6 +320,7 @@
     <MESSAGE value="création vue blog index et show et création fixtures pour les articles" />
     <MESSAGE value="création fixtures pour les articles" />
     <MESSAGE value="faire un composer require !!! installation de vicUploader et de mailer" />
-    <option name="LAST_COMMIT_MESSAGE" value="faire un composer require !!! installation de vicUploader et de mailer" />
+    <MESSAGE value="création du service uploaderHelper, ajout du controller ArticleAdminController" />
+    <option name="LAST_COMMIT_MESSAGE" value="création du service uploaderHelper, ajout du controller ArticleAdminController" />
   </component>
 </project>

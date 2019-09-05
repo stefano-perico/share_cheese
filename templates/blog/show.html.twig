@@ -1,72 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block header %}
-    {{ parent() }}
-
-    <style>
-        .article_header {
-            position: relative;
-        }
-
-        .article_header img {
-            width: 100%;
-            max-width: 100%;
-        }
-
-        .article_header .article_title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 85%;
-            background-color: rgba(158,158,158, 0.7);
-            padding: 30px;
-            border-radius: 15px 50px;
-        }
-
-        .article_title h1 {
-            color: #212121;
-        }
-
-        .article_complement {
-            background-color: rgba(107,107,107, 0.9);
-            height: 4em;
-            margin-top: 0;
-            text-align: center;
-        }
-
-        .article_complement span {
-            color: white;
-            vertical-align: middle;
-            line-height: 50px;
-            font-size: 18px;
-        }
-
-
-    </style>
-
-    <section class="article_header">
-        <img src="{{ article.imageFilename }}" alt="">
-        <aside class="article_title">
-            <h1>{{ article.title }}</h1>
-        </aside>
-    </section>
-
-    <section class="article_complement">
-        <span>{{ article.author.firstName }} {{ article.author.lastName }} le {{ article.createdAt|date }}</span>
-    </section>
-{% endblock %}
-
 {% block body %}
 
-    <section class="container">
-
-            <article>
-
-
+    <section class="row">
+            <article class="col s12">
+                <img src="{{ uploaded_asset(article.imagePath) }}" alt="{{ article.imageFilename }}">
+                <aside>
+                    <span>{{ article.title }}</span>
+                    <br>
+                    <span>{{ article.createdAt|date }}</span>
+                </aside>
+            </article>
+    </section>
+    <section class="row">
+            <article class="col s12">
                 <p>{{ article.content }}</p>
             </article>
-
     </section>
 {% endblock %}
 
