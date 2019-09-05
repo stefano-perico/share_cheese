@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @method Article|null find($id, $lockMode = null, $lockVersion = null)
@@ -27,6 +28,23 @@ class ArticleRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
             ;
+    }
+
+    public function getWithSearchQueryBuilder(?string $term): QueryBuilder
+    {
+    	$qb = $this->createQueryBuilder('article')
+		    ->innerJoin('article.author', 'author')
+		    ->addSelect('author')
+	    ;
+
+		    if ($term) {
+		    	$qb->andWhere('author.firstName LIKE :term OR author.lastName LIKe :term OR article.content LIKE :term OR article.title LIKE :term')
+				   ->setParameter('term', '%'.$term.'%')
+			    ;
+		    }
+
+		    return $qb
+			    ->orderBy('article.createdAt', 'DESC');
     }
 
     // /**

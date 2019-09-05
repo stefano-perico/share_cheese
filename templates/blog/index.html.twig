@@ -3,9 +3,23 @@
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block body %}
+    <h1>Cheeses Blog !</h1>
+
+    <form>
+        <div>
+            <label>
+                <input type="text"
+                       name="term"
+                       class="form-control"
+                       value="{{ app.request.query.get('term') }}"
+                       placeholder="Search..."
+                >
+            </label>
+        </div>
+    </form>
 
     <section class="container">
-        {% for article  in articles %}
+        {% for article  in articlesPagination %}
             <article class="article_container">
                 <a href="{{ path('blog_show', {'slug': article.slug}) }}">
                     <img src="{{ uploaded_asset(article.imagePath)|imagine_filter('squared_thumbnail_small') }}" alt="{{ article.imageFilename }}">
@@ -19,6 +33,10 @@
 
             </article>
         {% endfor %}
+
+        <aside class="center-align">
+            {{ knp_pagination_render(articlesPagination) }}
+        </aside>
     </section>
 
 {% endblock %}
