@@ -52,6 +52,15 @@ table.striped > tbody > tr:nth-child(odd) {
 >>>>>>> e2635055c14f76ab0d8aee4bde1221295506d60a
 }
 
+.user-profile-img {
+    width: 150px;
+}
+
+.resume-user {
+    display: flex;
+    justify-content: space-around;
+}
+
 /*#inscription{
     margin: auto 0;
 }*/

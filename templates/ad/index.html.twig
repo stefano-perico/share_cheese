@@ -16,7 +16,11 @@
             <div class="card">
                 <div class="card-image">
                     <span class="new badge left card-badge" data-badge-caption="{{ ad.status }}"></span>
+                    {% if ad.cheese.image is empty %}
+                    <img src="{{ asset('images/cheese/default.png') }}">
+                    {% else %}
                     <img src="{{ ad.cheese.image }}">
+                    {% endif %}
                     <a href="{{ path('ad_show', {id: ad.id}) }}" class="btn-floating halfway-fab waves-effect waves-light red">
                         <i class="material-icons">subject</i>
                     </a>
@@ -27,13 +31,15 @@
                     <p>{{ ad.description }}</p>
                 </div>
                 <div class="card-action">
-                    <a href="{{ path('ad_new') }}" class="waves-effect waves-light btn-small"><i class="material-icons left">shopping_basket</i>ECHANGEZ</a>
+                    <a href="{{ path('exchange_new', {id: ad.id}) }}" class="waves-effect waves-light btn-small"><i class="material-icons left">shopping_basket</i>échangez</a>
                 </div>
             </div>
         </div>
     </div>
     {% else %}
-    <p>No records found</p>
+    <div class="row">
+        <p>No records found</p>
+    </div>
     {% endfor %}
 
 {% endblock %}
