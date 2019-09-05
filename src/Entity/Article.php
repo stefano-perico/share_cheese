@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\service\UploaderHelper;
+use App\Service\UploaderHelper;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")

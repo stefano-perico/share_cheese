@@ -4,8 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Article;
 use App\Entity\User;
-use App\service\UploaderHelper;
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use App\Service\UploaderHelper;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Filesystem\Filesystem;
