@@ -19,6 +19,11 @@ hr {
     position: center;
 }
 
+.user-container {
+    margin-top: 50px;
+    padding: 10px;
+}
+
 .card-action {
     display: flex;
     justify-content: center;
@@ -29,16 +34,3 @@ hr {
     top: 5%;
     z-index: 10;
 }
-
-.user-profile-img {
-    width: 150px;
-}
-
-.resume-user {
-    display: flex;
-    justify-content: space-around;
-}
-
-/*#inscription{
-    margin: auto 0;
-}*/
