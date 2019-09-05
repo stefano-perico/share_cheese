@@ -1,16 +1,28 @@
 {{ form_start(form) }}
 
 <div class="input-field col s12">
-    {{ form_widget(form.cheeseGiven) }}
-    {{ form_errors(form.cheeseGiven) }}
+    {{ form_label(form.pseudo) }}
+    {{ form_widget(form.pseudo) }}
+    {{ form_errors(form.pseudo) }}
 </div>
 <div class="input-field col s12">
-    {{ form_label(form.message) }}
-    {{ form_widget(form.message, {'attr': {'class': 'materialize-textarea'}}) }}
-    {{ form_errors(form.message) }}
+    {{ form_label(form.firstName) }}
+    {{ form_widget(form.firstName) }}
+    {{ form_errors(form.firstName) }}
+</div>
+<div class="input-field col s12">
+    {{ form_label(form.lastName) }}
+    {{ form_widget(form.lastName) }}
+    {{ form_errors(form.lastName) }}
+</div>
+<div class="input-field col s12">
+    {{ form_label(form.email) }}
+    {{ form_widget(form.email) }}
+    {{ form_errors(form.email) }}
 </div>
 
 <div class="input-field left-align col s6">
     <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
 </div>
 {{ form_row(form._token) }}
+{{ form_end(form, {'render_rest': false}) }}

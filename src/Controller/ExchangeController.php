@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/exchange")
@@ -20,6 +21,7 @@ class ExchangeController extends AbstractController
 {
     /**
      * @Route("/", name="exchange_index")
+     * @IsGranted("ROLE_USER")
      */
     public function index(Exchangerepository $exchangeRepository): Response
     {
@@ -30,8 +32,9 @@ class ExchangeController extends AbstractController
 
     /**
      * @Route("/new/{id}", name="exchange_new", methods={"GET", "POST"})
+     * @IsGranted("ROLE_USER")
      */
-    public function new(Request $request, Ad $ad, User $user, EntityManagerInterface $em): Response
+    public function new(Request $request, Ad $ad, EntityManagerInterface $em): Response
     {
         $exchange = new Exchange();
         $form = $this->createForm(ExchangeType::class, $exchange);
@@ -39,7 +42,8 @@ class ExchangeController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             $exchange->setAd($ad);
-            $exchange->setStatus('En attente');
+            $ad->setStatus('Attente');
+            $exchange->setStatus('Attente');
             $exchange->setCreator($ad->getUser());
             $exchange->setApplicant($this->getUser());
             $exchange->setDateProposed(new \DateTime('NOW'));
@@ -57,6 +61,7 @@ class ExchangeController extends AbstractController
 
     /**
      * @Route("/{id}", name="exchange_show", methods={"GET"})
+     * @IsGranted("ROLE_USER")
      */
     public function show(Exchange $exchange): Response
     {
@@ -67,6 +72,7 @@ class ExchangeController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="exchange_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function edit(Request $request, Exchange $exchange, EntityManagerInterface $em): Response
     {
@@ -76,7 +82,7 @@ class ExchangeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->flush();
 
-            return $this->redirectToRoute('ad_index');
+            return $this->redirectToRoute('exchange_index');
         }
 
         return $this->render('exchange/edit.html.twig', [
@@ -86,15 +92,16 @@ class ExchangeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="ad_delete", methods={"POST"})
+     * @Route("/{id}", name="exchange_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_USER")
      */
-    public function delete(Request $request, Ad $ad, EntityManagerInterface $em): Response
+    public function delete(Request $request, Exchange $exchange, EntityManagerInterface $em): Response
     {
-        if($this->isCsrfTokenValid('delete'.$ad->getId(), $request->request->get('_token'))) {
-            $em->remove($ad);
+        if($this->isCsrfTokenValid('delete'.$exchange->getId(), $request->request->get('_token'))) {
+            $em->remove($exchange);
             $em->flush();
         }
-        return $this->redirectToRoute('ad_index');
+        return $this->redirectToRoute('exchange_index');
     }
 
 }

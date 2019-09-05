@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('exchange_delete', {'id': exchange.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer cet échange ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ exchange.id) }}">
+    <button class="waves-effect waves-light btn red">{{ button_label|default('Supprimer') }}</button>
+</form>

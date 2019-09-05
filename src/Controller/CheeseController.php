@@ -31,6 +31,7 @@ class CheeseController extends AbstractController
 
     /**
      * @Route("/new", name="cheese_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function new(Request $request, EntityManagerInterface $em): Response
     {
@@ -73,6 +74,7 @@ class CheeseController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="cheese_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function edit(Request $request, Cheese $cheese, EntityManagerInterface $em): Response
     {
@@ -92,7 +94,8 @@ class CheeseController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="cheese_delete", methods={"POST"})
+     * @Route("/{id}", name="cheese_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Cheese $cheese, EntityManagerInterface $em): Response
     {

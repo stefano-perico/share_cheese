@@ -1,0 +1,40 @@
+
+    <div class="row">
+        <h2>Mes échanges demandés</h2>
+    </div>
+
+    <div class="row">
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Mon fromage</th>
+                    <th>Utilisateur échangeur</th>
+                    <th>Son fromage</th>
+                    <th>Date de proposition</th>
+                    <th>Date de fin</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appliedExchange in app.user.appliedExchanges %}
+                <tr>
+                    <td>{{ appliedExchange.ad.cheese.name }}</td>
+                    <td>{{ appliedExchange.creator.firstName }} {{ appliedExchange.creator.lastName }}</td>
+                    <td>{{ appliedExchange.cheeseGiven.name }}</td>
+                    <td>{{ appliedExchange.dateProposed ? appliedExchange.dateProposed|date('d/m/Y') : '' }}</td>
+                    <td>{{ appliedExchange.ad.startDate ? appliedExchange.ad.startDate|date('d/m/Y') : '' }}</td>
+                    <td><span class="new badge" data-badge-caption="{{ appliedExchange.status }}"></span></td>
+                    <td>
+                        <a href="{{ path('exchange_show', {id: appliedExchange.id}) }}" class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">notes</i></a>
+                        <a href="{{ path('exchange_edit', {id: appliedExchange.id}) }}" class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">create</i></a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="7">Pas d'échange demandé</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>

@@ -98,7 +98,7 @@ class AdController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="ad_delete", methods={"POST"})
+     * @Route("/{id}", name="ad_delete", methods={"DELETE"})
      * @IsGranted("ROLE_USER")
      */
     public function delete(Request $request, Ad $ad, EntityManagerInterface $em): Response

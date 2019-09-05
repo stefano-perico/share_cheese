@@ -11,9 +11,10 @@
 </div>
 
 <div class="input-field left-align col s6">
-    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+    <button class="btn btn-primary">{{ button_label|default('Echangez !') }}</button>
 </div>
 {{ form_row(form._token) }}
+{{ form_end(form, {'render_rest': false}) }}
 
 {% block javascripts %}
 
