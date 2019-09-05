@@ -8,7 +8,7 @@
         {% for article  in articles %}
             <article class="article_container">
                 <a href="{{ path('blog_show', {'slug': article.slug}) }}">
-                    <img src="{{ uploaded_asset(article.imagePath) }}" alt="{{ article.imageFilename }}">
+                    <img src="{{ uploaded_asset(article.imagePath)|imagine_filter('squared_thumbnail_small') }}" alt="{{ article.imageFilename }}">
                     <aside class="article_img">
                         <span>{{ article.title }}</span>
                         <br>

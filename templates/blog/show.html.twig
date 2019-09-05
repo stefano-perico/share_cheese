@@ -4,7 +4,7 @@
 
     <section class="row">
             <article class="col s12">
-                <img src="{{ uploaded_asset(article.imagePath) }}" alt="{{ article.imageFilename }}">
+                <img src="{{ uploaded_asset(article.imagePath)|imagine_filter('squared_thumbnail_medium') }}" alt="{{ article.imageFilename }}">
                 <aside>
                     <span>{{ article.title }}</span>
                     <br>

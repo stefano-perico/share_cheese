@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55fde810-d5be-4d5f-9fa3-1cb72f20c9b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/packages/liip_imagine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/translation.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes/liip_imagine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translations/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/Resources/images/cheese-1149471_640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/Resources/images/cheese-1972744_640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/Resources/images/cheese-2205913_640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/Resources/images/cheese-2785_640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/Resources/images/cheese-3373604_640.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/liip_imagine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/liip_imagine.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ArticlesFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/ArticlesFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/UploaderHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/UploaderHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article_admin/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article_admin/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/show.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -160,7 +163,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/DataFixtures/Resources/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -176,6 +179,7 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/DataFixtures/Resources/images" />
       <recent name="$PROJECT_DIR$/public/js" />
       <recent name="$PROJECT_DIR$/public/css" />
     </key>
@@ -204,7 +208,7 @@
       <updated>1567177342635</updated>
       <workItem from="1567177344890" duration="1091000" />
       <workItem from="1567178538650" duration="27741000" />
-      <workItem from="1567587619405" duration="22401000" />
+      <workItem from="1567587619405" duration="25567000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567421147251</created>
@@ -297,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567677579620</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="FAIRE UN COMPOSER INSTALL. Modification du service UploaderHelper (ajout d'une const pour la route des images d'article). Création d'un service Twig pour créer un nouveau filtre afin d'atteindre la base du site et afficher les images uploadées. Installation de liip/imagine-bundle pour créer des thumbnail et réduire la taille des images.">
+      <created>1567677624786</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1567677624786</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

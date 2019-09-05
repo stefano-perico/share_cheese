@@ -1,12 +1,27 @@
 {{ form_start(articleForm) }}
+
+    <section class="row">
+        <aside class="col m9">
+            {{ form_row(articleForm.imageFile, {
+                attr: {
+                    'placeholder': 'Select an article image'
+                }
+            }) }}
+        </aside>
+        <aside class="col m3">
+            {% if articleForm.vars.data.imageFilename | default %}
+                <img src="{{ uploaded_asset(articleForm.vars.data.imagePath)|imagine_filter('squared_thumbnail_small') }}" alt="{{ articleForm.vars.data.imageFilename }}" height="100">
+            {% endif %}
+        </aside>
+
+    </section>
+
+
+
     {{ form_row(articleForm.title, {
         label: 'Article title'
     }) }}
-    {{ form_row(articleForm.imageFile, {
-        attr: {
-            'placeholder': 'Select an article image'
-        }
-    }) }}
+
 
 {{ form_row(articleForm.content) }}
 
