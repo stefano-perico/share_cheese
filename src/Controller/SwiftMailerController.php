@@ -15,7 +15,7 @@ class SwiftMailerController extends AbstractController
     {
 
         $message = (new Swift_Message('Hello Email'))
-            ->setFrom('send@example.com')
+            ->setFrom('hugo.christin@gmail.com')
             ->setTo('recipient@example.com')
             ->setBody('Test de mail'
                 //$this->renderView(

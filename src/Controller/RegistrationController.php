@@ -49,8 +49,8 @@ class RegistrationController extends AbstractController
             //$entityManager->flush();
 
             $message = (new \Swift_Message())
-                ->setFrom('send@example.com')
-                ->setTo('recipient@example.com')
+                ->setFrom('hugo.christin@gmail.com')
+                ->setTo('hugo.chrisitn@gmail.com')
                 ->setBody('Test de mail'
                 //$this->renderView(
 //                 //templates/emails/swift_mailer.html.twig
@@ -63,7 +63,7 @@ class RegistrationController extends AbstractController
 
             //dd($message);
 
-            dd($this->mailer->send($message));
+            $this->mailer->send($message);
 
             // do anything else you need here, like send an email
 
