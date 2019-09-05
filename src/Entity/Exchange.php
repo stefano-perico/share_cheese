@@ -58,6 +58,12 @@ class Exchange
      */
     private $dateProposed;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="appliedExchanges")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $applicant;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -155,6 +161,18 @@ class Exchange
     public function setDateProposed(\DateTimeInterface $dateProposed): self
     {
         $this->dateProposed = $dateProposed;
+
+        return $this;
+    }
+
+    public function getApplicant(): ?User
+    {
+        return $this->applicant;
+    }
+
+    public function setApplicant(?User $applicant): self
+    {
+        $this->applicant = $applicant;
 
         return $this;
     }

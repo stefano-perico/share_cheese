@@ -36,6 +36,11 @@ h1{
     position: center;
 }
 
+.user-container {
+    margin-top: 50px;
+    padding: 10px;
+}
+
 .card-action {
     display: flex;
     justify-content: center;
@@ -51,16 +56,3 @@ table.striped > tbody > tr:nth-child(odd) {
     z-index: 10;
 >>>>>>> e2635055c14f76ab0d8aee4bde1221295506d60a
 }
-
-.user-profile-img {
-    width: 150px;
-}
-
-.resume-user {
-    display: flex;
-    justify-content: space-around;
-}
-
-/*#inscription{
-    margin: auto 0;
-}*/

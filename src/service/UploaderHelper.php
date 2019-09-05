@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\service;
+namespace App\Service;
 
 
 use Gedmo\Sluggable\Util\Urlizer;
@@ -34,6 +34,7 @@ class UploaderHelper
 
         return $newFilename;
 	}
+
 
 	public function getPublicPath(string $path)
 	{
