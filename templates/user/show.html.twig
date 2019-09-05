@@ -3,41 +3,33 @@
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
-    <style>
-        .user_main {
-            height: 100vh;
-        }
+        <div class="row">
+            <h1>{{ app.user.firstName }} {{ app.user.lastName }}</h1>
+        </div>
 
-        .user_container {
-            margin-top: 50px;
-        }
-
-        .user_container img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-        }
-    </style>
-
-    <section class="container user_main center-align">
-        <h1>{{ app.user.firstName }} {{ app.user.lastName }}</h1>
-        <div class="row user_container z-depth-3">
-            <div class="col s12 m6">
-                <img src="{{ asset('images/users/default.png') }}" class="user-profile-img" alt="default_user_image">
-            </div>
-            <div class="col s12 m6 test">
-                <aside class="row resume-user">
-                    <div class="col s12 m4">
-                        <p>Nombre d'annonces</p>
+        <div class="row s12 m12 z-depth-3 valign-wrapper">
+            <aside class="col s12 m3">
+                <img src="{{ asset('images/users/default.png') }}" class="circle responsive-img" alt="default_user_image">
+            </aside>
+            <article class="col s12 m8 l6">
+                <div class="row m9">
+                    <div class="col s12 m4 center-align">
+                        <p>Nombre d'annonces en ligne</p>
                         <p class="chip">{{ app.user.ads|length }}</p>
                     </div>
-                    <div class="col s12 m4">
-                        <p>Nombre d'échanges</p>
+                    <div class="col s12 m4 center-align">
+                        <p>Nombre d'échanges en cours</p>
                         <p class="chip">{{ app.user.createdExchanges|length }}</p>
                     </div>
-                </aside>
-                <a class="waves-effect waves-light btn" href="{{ path('ad_new') }}">Créer une annonce</a>
-            </div>
+                    <div class="col s12 m4 center-align">
+                        <p>Nombre d'échanges terminés</p>
+                        <p class="chip">{{ app.user.createdExchanges|length }}</p>
+                    </div>
+                </div>
+                <div class="row s12 m6 center-align">
+                    <a class="waves-effect waves-light btn" href="{{ path('ad_new') }}">Créer une annonce</a>
+                </div>
+            </article>
         </div>
         <div class="row">
             <a class="waves-effect waves-light btn" href="{{ path('user_edit', {id: app.user.id}) }}">Modifier mon profil</a>
@@ -49,6 +41,5 @@
         <div class="row">
             {{ include('user/_exchanges.html.twig') }}
         </div>
-    </section>
 
 {% endblock %}

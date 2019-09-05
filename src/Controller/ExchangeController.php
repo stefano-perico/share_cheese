@@ -6,6 +6,7 @@ use App\Entity\Exchange;
 use App\Form\ExchangeType;
 use App\Repository\ExchangeRepository;
 use App\Entity\Ad;
+use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
- * @Route("/exchanges")
+ * @Route("/exchange")
  */
 class ExchangeController extends AbstractController
 {
@@ -30,19 +31,18 @@ class ExchangeController extends AbstractController
     /**
      * @Route("/new/{id}", name="exchange_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, Ad $ad, EntityManagerInterface $em): Response
+    public function new(Request $request, Ad $ad, User $user, EntityManagerInterface $em): Response
     {
-        //dd($request);
         $exchange = new Exchange();
-        $exchange->setAd($ad);
-        $exchange->setStatus('Pending');
-        $exchange->setCreator($ad->getUser());
-        $exchange->setDateProposed(new \DateTime('NOW'));
-
         $form = $this->createForm(ExchangeType::class, $exchange);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            $exchange->setAd($ad);
+            $exchange->setStatus('En attente');
+            $exchange->setCreator($ad->getUser());
+            $exchange->setApplicant($this->getUser());
+            $exchange->setDateProposed(new \DateTime('NOW'));
             $em->persist($exchange);
             $em->flush();
 

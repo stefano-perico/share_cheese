@@ -42,18 +42,3 @@ hr {
 /*#inscription{
     margin: auto 0;
 }*/
-
-/*blog*/
-.article_container {
-    border: 1px solid #efefee;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    background: #fff;
-}
-
-.article_img {
-    height: 100px;
-    width: 100px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}

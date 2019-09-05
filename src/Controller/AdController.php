@@ -14,7 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
- * @Route("/ads")
+ * @Route("/ad")
  */
 class AdController extends AbstractController
 {
@@ -40,16 +40,6 @@ class AdController extends AbstractController
     }
 
     /**
-     * @Route("/", name="ad_user_index")
-     */
-    public function userIndex(AdRepository $adRepository, User $user)
-    {
-        return $this->render('ad/_user_index.html.twig', [
-            'ads' => $adRepository->findAllByUser($user),
-            ]);
-    }
-
-    /**
      * Create a new Ad object
      * @Route("/new", name="ad_new", methods={"GET", "POST"})
      * @IsGranted("ROLE_USER")
@@ -61,7 +51,7 @@ class AdController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $ad->setStatus('New');
+            $ad->setStatus('Disponible');
             $ad->setUser($this->getUser());
             $em->persist($ad);
             $em->flush();
@@ -88,6 +78,7 @@ class AdController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="ad_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function edit(Request $request, Ad $ad, EntityManagerInterface $em): Response
     {
@@ -108,6 +99,7 @@ class AdController extends AbstractController
 
     /**
      * @Route("/{id}", name="ad_delete", methods={"POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function delete(Request $request, Ad $ad, EntityManagerInterface $em): Response
     {

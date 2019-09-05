@@ -87,11 +87,17 @@ class User implements UserInterface
      */
     private $createdExchanges;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Exchange", mappedBy="applicant")
+     */
+    private $appliedExchanges;
+
     public function __construct()
     {
         $this->ads = new ArrayCollection();
         $this->articles = new ArrayCollection();
         $this->createdExchanges = new ArrayCollection();
+        $this->appliedExchanges = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -343,6 +349,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($createdExchange->getCreator() === $this) {
                 $createdExchange->setCreator(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Exchange[]
+     */
+    public function getAppliedExchanges(): Collection
+    {
+        return $this->appliedExchanges;
+    }
+
+    public function addAppliedExchange(Exchange $appliedExchange): self
+    {
+        if (!$this->appliedExchanges->contains($appliedExchange)) {
+            $this->appliedExchanges[] = $appliedExchange;
+            $appliedExchange->setApplicant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAppliedExchange(Exchange $appliedExchange): self
+    {
+        if ($this->appliedExchanges->contains($appliedExchange)) {
+            $this->appliedExchanges->removeElement($appliedExchange);
+            // set the owning side to null (unless already changed)
+            if ($appliedExchange->getApplicant() === $this) {
+                $appliedExchange->setApplicant(null);
             }
         }
 

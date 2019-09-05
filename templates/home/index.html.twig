@@ -7,9 +7,10 @@
     <header>
         <div class="bghead">
             <div class="parallax-container">
-                <div class="center-align"><h1 class="white-text text-darken-2 ">Bienvenue chez Share Cheese</h1></div>
-                <div class="parallax"><img src="../img/fromage_home.jpg"></div>
-                <div class="center-align"><a href="{{ path('app_register') }}" id="inscription" class="waves-effect waves-light btn" href="{{ path('app_register') }}">Inscrivez-vous</a></div>
+                <div class="center-align contentHead"><h1 class="white-text text-darken-2 ">Bienvenue chez Share Cheese</h1></div>
+                <div class="parallax"><img src="{{ asset('fromage_home') }}"></div>
+                <div class="center-align contentHead"><a id="inscription" class="waves-effect waves-light btn" href="{{ path('app_register') }}">Inscrivez-vous</a></div>
+
             </div>
         </div>
     </header>
@@ -49,7 +50,7 @@
     </div>
     <hr>
     <div>
-        <h3 class="center-align">Les Dernièrs Articles</h3>
+        <h3 class="center-align">Les Derniers Articles</h3>
         <section class="container">
             {% for article in articles %}
                 <article>
@@ -59,7 +60,7 @@
                 </article>
             {% endfor %}
         </section>
-        <div class="center-align"><a id="news" class="waves-effect waves-light btn" href="{{ path('blog_index') }}">Plus d'Article</a></div>
+        <div class="center-align"><a id="news" class="waves-effect waves-light btn" href="{{ path('blog_index') }}">Plus d'Articles</a></div>
     </div>
 
 {% endblock %}

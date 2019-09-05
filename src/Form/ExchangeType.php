@@ -22,6 +22,7 @@ class ExchangeType extends AbstractType
             'choice_label' => 'name'
             ])
             ->add('message')
+            
         ;
     }
 

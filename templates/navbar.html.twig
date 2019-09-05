@@ -2,31 +2,25 @@
     <div class="container">
         <div class="nav-wrapper">
             <a href="{{ path('home') }}" class="left brand-logo">Share Cheese</a>
-            <ul id="nav-mobile" class="right">
-                <li>
-                    <a href="{{ path('ad_index') }}">Ads</a>
-                </li>
-                <li>
-                    <a href="{{ path('cheese_index') }}">Cheeses</a>
-                </li>
+            <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-med-and-up right"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-small-only">
+                <li><a href="{{ path('ad_index') }}">Ads</a></li>
+                <li><a href="{{ path('cheese_index') }}">Cheeses</a></li>
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                <li>
-                    <a class="nav-link" href="{{ path('user_show', {'id': app.user.id}) }}">My account</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
-                </li>
+                <li><a href="{{ path('user_show', {'id': app.user.id}) }}">My account</a></li>
+                <li><a href="{{ path('app_logout') }}">Logout</a></li>
                 {% else %}
-                <li>
-                    <a href="{{ path('app_login') }}">Login</a>
-                </li>
-                <li>
-                    <a href="{{ path('app_register') }}">Register</a>
-                </li>
+                <li><a href="{{ path('app_login') }}">Login</a></li>
+                <li><a href="{{ path('app_register') }}">Register</a></li>
                 {% endif %}
             </ul>
             <form>
+
+                <div class="input-field right">
+
+
                 <div class="input-field right hide-on-med-and-down">
+
                     <input id="search" type="search" required="required">
                     <label class="label-icon" for="search">
                         <i class="material-icons">search</i>
@@ -37,3 +31,31 @@
         </div>
     </div>
 </nav>
+<ul class="sidenav" id="slide-out">
+    <li>
+        <div class="user-view lime darken-2">
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <a href="{{ path('user_show', {'id': app.user.id}) }}"><span class="white-text name">{{ app.user.firstName }} {{ app.user.lastName }}</span></a>
+            <a href="{{ path('user_show', {'id': app.user.id}) }}"><span class="white-text link">Mon compte</span></a>
+            <span class="white-text"> | </span>
+            <a href="{{ path('app_logout') }}"><span class="white-text link">Me déconnecter</span></a>
+            {% else %}
+            <a href="{{ path('app_login') }}">Se connecter</a>
+            <a href="{{ path('app_register') }}">S'enregistrer</a>
+            {% endif %}
+        </div>
+    </li>
+    <li><a href="{{ path('ad_index') }}">Annonces</a></li>
+    <li><a href="{{ path('cheese_index') }}">Fromages</a></li>
+</ul>
+
+
+    {% block javascripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, {});
+        });
+    </script>
+
+  {% endblock %}

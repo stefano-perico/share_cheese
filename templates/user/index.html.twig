@@ -43,4 +43,36 @@
     </table>
 </div>
 
+<<<<<<< HEAD
+        .user_container img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+    </style>
+
+    <section class="container user_main center-align">
+        <h2>{{ app.user.lastName }} {{ app.user.firstName }}</h2>
+        <div class="row user_container z-depth-3">
+            <article class="col s12 m6">
+                <img src="{{ asset('images/users/default.png') }}" alt="default_user_image">
+            </article>
+            <article class="col s12 m6 test">
+                <aside class="row">
+                    <div class="col s12 m4">
+                        <p>Nombre d'annonces</p>
+                        <p class="chip">43</p>
+                    </div>
+                    <div class="col s12 m4">
+                        <p>Nombre d'échanges</p>
+                        <p class="chip">56</p>
+                    </div>
+                </aside>
+                <a class="waves-effect waves-light btn" href="{{ path('ad_new') }}">Créer une annonce</a>
+            </article>
+        </div>
+
+    </section>
+=======
+>>>>>>> b418f0b812741bbaca0d3ea9be4239ecee86160c
 {% endblock %}
