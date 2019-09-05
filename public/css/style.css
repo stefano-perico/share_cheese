@@ -30,6 +30,15 @@ hr {
     z-index: 10;
 }
 
+.user-profile-img {
+    width: 150px;
+}
+
+.resume-user {
+    display: flex;
+    justify-content: space-around;
+}
+
 /*#inscription{
     margin: auto 0;
 }*/

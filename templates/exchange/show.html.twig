@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Echange{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h2>Echange de {{ exchange.ad.cheese.name }} contre un {{ exchange.cheeseGiven.name }}</h2>
+    </div>
+
+    <div class="row">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Nom de l'utilisateur échangeur</th>
+                    <td>{{ exchange.creator.firstName }} {{ exchange.creator.lastName }}</td>
+                </tr>
+                <tr>
+                    <th>Fromage voulu</th>
+                    <td><a href="{{ path('cheese_show', {id: exchange.ad.cheese.id }) }}">{{ exchange.ad.cheese.name }}</a></td>
+                </tr>
+                <tr>
+                    <th>Fromage donné</th>
+                    <td><a href="{{ path('cheese_show', {id: exchange.cheeseGiven.id }) }}">{{ exchange.cheeseGiven.name }}</a></td>
+                </tr>
+                <tr>
+                    <th>Statut</th>
+                    <td>{{ exchange.status }}</td>
+                </tr>
+                <tr>
+                    <th>Proposé le</th>
+                    <td>{{ exchange.dateProposed ? exchange.dateProposed|date('d/m/Y') : '' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <a href="{{ path('exchange_index') }}" class="btn btn-primary">retour à la liste</a>
+    </div>
+
+{% endblock %}

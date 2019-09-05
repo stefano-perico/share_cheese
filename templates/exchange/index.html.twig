@@ -7,23 +7,25 @@
         <h1>Tous les échanges</h1>
     </div>
 
-    {% for ad in ads %}
+    {% for exchange in exchanges %}
     <div class="row">
         <div class="col s12 m6">
             <div class="card">
                 <div class="card-image">
+                    <span class="new badge left card-badge" data-badge-caption="{{ exchange.status }}"></span>
+                    {% if exchange.ad.cheese.image is empty %}
+                    <img src="{{ asset('images/cheese/default.png') }}">
+                    {% else %}
                     <img src="{{ exchange.ad.cheese.image }}">
-                    <a href="{{ path('exchange_show', {id: exchange.id}) }}" class="btn-floating halfway-fab waves-effect waves-light red">
-                        <i class="material-icons">subject</i>
-                    </a>
+                    {% endif %}
                 </div>
                 <div class="card-content">
-                    <span class="card-title">Echange de {{ exchange.ad.cheese.name }}</span>
+                    <span class="card-title">Echange de {{ exchange.ad.cheese.name }} contre {{ exchange.cheeseGiven.name }}</span>
                     <p>Par {{ exchange.ad.user.firstName }}</p>
-                    <p>{{ exchange.ad.description }}</p>
+                    <p>Proposé le {{ exchange.dateProposed ? exchange.dateProposed|date('d/m/Y') : '' }}</p>
                 </div>
                 <div class="card-action">
-                    <a class="waves-effect waves-light btn-small"><i class="material-icons left">shopping_basket</i>ECHANGEZ</a>
+                    <a href="{{ path('exchange_show', {id: exchange.id}) }}" class="waves-effect waves-light btn-small"><i class="material-icons left">subject</i>voir les infos</a>
                 </div>
             </div>
         </div>

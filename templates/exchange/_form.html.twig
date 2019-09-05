@@ -1,0 +1,36 @@
+{{ form_start(form) }}
+
+<div class="input-field col s12">
+    {{ form_widget(form.cheeseGiven) }}
+    {{ form_errors(form.cheeseGiven) }}
+</div>
+<div class="input-field col s12">
+    {{ form_label(form.message) }}
+    {{ form_widget(form.message, {'attr': {'class': 'materialize-textarea'}}) }}
+    {{ form_errors(form.message) }}
+</div>
+
+<div class="input-field left-align col s6">
+    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+</div>
+{{ form_row(form._token) }}
+
+{% block javascripts %}
+
+<script type="text/javascript">
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
+  });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, {
+        format: 'yyyy-mm-dd'
+    });
+});
+
+</script>
+
+{% endblock %}
