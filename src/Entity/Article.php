@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\service\UploaderHelper;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -132,6 +133,11 @@ class Article
         $this->imageFilename = $imageFilename;
 
         return $this;
+    }
+
+    public function getImagePath(): string
+    {
+    	return UploaderHelper::ARTICLE_IMAGE.'/'.$this->getImageFilename();
     }
 
     public function getAuthor(): ?User

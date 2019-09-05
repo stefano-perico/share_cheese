@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/article/")
+ * @Route("/admin/article")
  */
 class ArticleAdminController extends AbstractController
 {
@@ -32,7 +32,7 @@ class ArticleAdminController extends AbstractController
 	/**
 	 * @Route("/new", name="admin_article_new")
 	 */
-	public function new(EntityManagerInterface $em, Request $request): Response
+	public function new(EntityManagerInterface $em, Request $request, UploaderHelper $uploaderHelper): Response
 	{
 		$form = $this->createForm(ArticleType::class);
 
@@ -41,6 +41,14 @@ class ArticleAdminController extends AbstractController
 		{
 			/** @var Article $article */
 			$article = $form->getData();
+			$article->setAuthor($this->getUser());
+
+			/** @var UploadedFile $uploadedFile */
+			$uploadedFile = $form['imageFile']->getData();
+			if ($uploadedFile) {
+				$newFilename = $uploaderHelper->uploadArticleImage($uploadedFile);
+				$article->setImageFilename($newFilename);
+			}
 
 			$em->persist($article);
 			$em->flush();
@@ -60,7 +68,7 @@ class ArticleAdminController extends AbstractController
 	 */
 	public function edit(Article $article, Request $request, EntityManagerInterface $em, UploaderHelper $uploaderHelper): Response
 	{
-		$form = $this->createForm(Article::class);
+		$form = $this->createForm(ArticleType::class, $article);
 
 		$form->handleRequest($request);
 		if ($form->isSubmitted() && $form->isValid())
